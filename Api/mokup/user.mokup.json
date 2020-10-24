@@ -1,0 +1,33 @@
+{
+    "Title":"La casa de papel",
+      "Year":2017 ,
+      "Age":18,
+      "Saison":2,
+      "Trailer":"https://www.youtube.com/watch?v=To_kVMMu-Ls",
+      "Cover":"https://www.journaldugeek.com/content/uploads/2020/04/lcdp-s4-vert-main-rgb-es-365x540.jpg",
+      "Content":[
+        [
+          "https://fr.web.img3.acsta.net/r_1280_720/newsv7/19/10/25/10/52/0422461.jpg",
+          "https://images.lpcdn.ca/924x615/201904/01/1628695-casa-papel-maison-papier.jpg",
+          "https://www.telerama.fr/sites/tr_master/files/styles/simplecrop1000/public/lcdp_311_unit_00063_0.jpg?itok=J3WnaaMX" ,
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTUUTux_EIJjNbRSFaRg8m-CCWL8kGT0dtxbA&usqp=CAU"
+        ],
+        [
+          "https://www.courrierinternational.com/sites/ci_master/files/styles/image_original_1280/public/assets/images/serie_-_espagne_-_casa_de_papel_saison_4_-_netflix_-_2020.png?itok=-FRwMKLM,https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3yIPIlWyJYEPFinZI-FPLyOMPP6ugN4Z21g&usqp=CAU",
+          "https://file1.telestar.fr/var/telestar/storage/images/3/1/5/5/3155090/photos.-casa-papel-saison-qui-sont-les-nouveaux-acteurs.jpg?alias=original",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTHOj0bRX5oDp3GdPmcNkLEr5DzLNgttTzklQ&usqp=CAU",
+          "https://tel.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Ftel.2F2020.2F04.2F06.2F850f66a6-717f-495a-84b3-e1b2603f1288.2Ejpeg/1200x600/crop-from/top/quality/80/cr/wqkgVGFtYXJhIEFycmFueiBSYW1vcy9OZXRmbGl4/focus-point/535,238/la-casa-de-papel-netflix-saison-5-date-casting-intrigues-toutes-les-infos.jpg"
+        ]
+      ],
+      "Categorie":["Drame","Thriller"],
+      "Description":"Huit voleurs font une prise d'otages dans la Maison royale de la Monnaie d'Espagne, tandis qu'un génie du crime manipule la police pour mettre son plan à exécution",
+      "Rate":4.5
+    }
+
+    {
+        "email":"admin@admin.admin",
+        "password":"admin",
+        "firstname":"admin",
+        "lastname":"admin",
+        "admin":true      
+    }
