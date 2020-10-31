@@ -32,7 +32,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  Series.find()
+  Serie.find()
     .then(Series => {
       res.send(Series);
     })
