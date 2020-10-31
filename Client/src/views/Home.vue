@@ -1,18 +1,31 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <h1>TENTATIVE DE FETCH</h1>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import ApiUsers from "@/mixins/UsersApi.js";
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
-  }
+  
+  },
+  data() {
+    return {
+      userList: []
+    }
+  },
+   created() {
+            this.getFilms()
+            .then(data => console.log("date: " + date))
+            .catch(err => console.log(err));
+            console.log(this.userList);
+        },
+  mixins:[ApiUsers]
 }
 </script>
