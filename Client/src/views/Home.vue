@@ -1,24 +1,17 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-
-    <div style="display:flex;justify-content: space-around;width:100% ">
-      <div>
-        <h1 style="color:lightgreen">ALL USER</h1>
-        <div class="product_item" v-for="User in UserList" :key="User.id" style="display:flex">
-          <h3 style="margin-right:10px">{{ User._id }}</h3>
-          <h3>{{ User.firstname }}</h3>
-        </div>
+    <video autoplay loop muted>
+        <source src="../assets/login_vid.mp4" type="video/mp4">
+    </video>
+    <div class="home-menu">
+      <div class="home-left">
+        <img src="../assets/netflix-logo.png" alt="">
+        <h2>WATCH TV SHOWS & MOVIES ANYWHERE. ANYTIME</h2>
+        <button class="trial-button">Start Your Free Month</button>
       </div>
-
-      <div >
-        <h1 style="color:lightgreen">ALL Serie</h1>
-        <div class="product_item" v-for="Serie in SerieList" :key="Serie.id" style="display:flex">
-          <h3 style="margin-right:10px">{{ Serie._id }}</h3>
-          <h3>{{ Serie.Title }}</h3>
-        </div>
+      <div class="home-right">
+        <p>SIGN IN</p>
       </div>
-
     </div>
   </div>
 </template>
@@ -31,42 +24,78 @@ import AuthApi from "@/mixins/AuthApi.js";
 import SerieApi from "@/mixins/SerieApi.js";
 export default {
   name: "Home",
-  components: {},
-  data() {
-    return {
-      UserList: [],
-      SerieList: [],
-    };
-  },
-  created() {
-    this.Login("admin@admin.admin", "admin")
-      .then((data) => {
-        localStorage.setItem("token", data.token);
-        console.log(localStorage.getItem("token"));
-      })
-      .catch((err) => console.log(err));
-
-    this.GetUsers()
-      .then((data) => {
-        console.log(data);
-        this.UserList = data;
-      })
-      .catch((err) => console.log(err));
-
-    this.GetSeries()
-      .then((data) => {
-        console.log(data);
-        this.SerieList = data;
-      })
-      .catch((err) => console.log(err));
-
-
-        this.RemoveSerie("5f934c4670f3fe11a856b87b")
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => console.log(err));
-  },
-  mixins: [AuthApi, UserApi, SerieApi],
+  
+ 
+  mixins: [AuthApi],
 };
 </script>
+<style scoped>
+body{
+  margin: 0px !important;
+}
+  .home{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+   
+  }
+  video, source{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    filter: brightness(0.2)
+  }
+  .home-menu{
+    position: absolute;
+    color: white;
+    height: 100%;
+    width: 100%;
+    
+    
+    display: flex;
+    justify-content: space-around;
+  }
+  .home-left, .home-right{
+    width: 50%;
+    
+  }
+  .home-right{
+    text-align: right;
+    
+  }
+  .home-right p{
+    background: #e50914;
+    float: right;
+    width: 15%;
+    padding: 1vh 1vw;
+    margin-top: 5vh;
+    font-weight: bold
+    
+  }
+  .home-left h2{
+    margin: 0;
+    line-height: 100%;
+     margin: 0 5vw;
+  }
+  .home-left{
+    text-align: left;
+    font-size: 4em;
+   
+  }
+  .trial-button{
+    width: 20vw;
+    height: 8vh;
+    font-weight: bold;
+    font-size: 0.4em;
+     margin: 0 5vw;
+  }
+  img{
+    width: 10vw;
+    height: 15vh;
+     margin: 0 5vw;
+  }
+</style>
