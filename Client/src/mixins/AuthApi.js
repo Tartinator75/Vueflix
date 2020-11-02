@@ -15,13 +15,18 @@ export default {
                    "password":password
                 })
            }).then(function(res){
-               return res.json();
+               let data = res.json();
+
+               localStorage.setItem("token",data.token);
+               return data;
            })
         },
         GetUserDetail(id){
            fetch(url+"/users/"+id).then(function(res){
                return res.json();
            })
+
+           
        }
     }
 }

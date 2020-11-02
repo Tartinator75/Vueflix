@@ -36,6 +36,9 @@ Categorie:[
 Rate:{
     type:Number,//  star
 },
+Logo:{
+    type:String,//  logo
+},
 },{
 timestamps:true
 });

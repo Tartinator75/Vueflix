@@ -13,7 +13,8 @@ exports.create = (req, res) => {
     Cover: req.body.Cover,
     Content: req.body.Content,
     Categorie:req.body.Categorie,
-    Rate:req.body.Rate
+    Rate:req.body.Rate,
+    Logo:req.body.Rate
   });
 
   /*if (err) {
