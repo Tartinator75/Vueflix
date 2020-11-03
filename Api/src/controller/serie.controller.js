@@ -14,7 +14,9 @@ exports.create = (req, res) => {
     Content: req.body.Content,
     Categorie:req.body.Categorie,
     Rate:req.body.Rate,
-    Logo:req.body.Rate
+    Logo:req.body.Logo,
+    Director:req.body.Director,
+    Cast:req.body.Cast
   });
 
   /*if (err) {
