@@ -5,7 +5,7 @@ exports.connect = () =>{
     let url = config.url;
     mongoose.connect(url,
         {
-            useFindAndModify:true,
+            useFindAndModify:false,
             useCreateIndex : true,
             useNewUrlParser : true,
             useUnifiedTopology : true

@@ -1,8 +1,20 @@
 <template>
   <div id="app">
-    <router-view />
+    <TransitionPage>
+      <router-view />
+    </TransitionPage>
   </div>
 </template>
+
+<script>
+import TransitionPage from "./transitions/TransitionPage.vue";
+export default {
+  name: `App`,
+  components: {
+    TransitionPage,
+  },
+};
+</script>
 
 <style lang="scss">
 @font-face {
@@ -13,8 +25,27 @@
   font-style: normal;
   font-display: auto;
 }
+html{
+  overflow: hidden;
+}
+.Page{
+position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh!important;
+
+}
+body {
+  background: black;
+  overflow: hidden;
+}
 * {
   margin: 0;
   padding: 0;
+}
+a{
+ color: inherit;
+  text-decoration: none;
 }
 </style>

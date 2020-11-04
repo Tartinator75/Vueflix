@@ -1,8 +1,8 @@
 <template>
-<div> 
-<Header :Logo="Logo"></Header>
-<Gallery></Gallery>
-</div>
+  <div class="Home Page">
+    <Header :Logo="Logo"></Header>
+    <Gallery :Series="Series"></Gallery>
+  </div>
 </template>
 
 <script>
@@ -18,22 +18,25 @@ export default {
 
   data: function() {
     return {
-      Serie: {},
-      Logo: {},
+      Series:[],
+      Logo: String,
     };
   },
   components: {
     Header,
-    Gallery
+    Gallery,
   },
   methods: {},
   created() {
-    localStorage.setItem("token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDI0MjcyOSwiZXhwIjoxNjA0MzI5MTI5fQ.VjZylw8AEgL9PQPTp-Dm_-NBtJj9fZFFe8dYcon7M9k");
+    localStorage.setItem(
+      "token",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDUwMDQ5MywiZXhwIjoxNjA0NTg2ODkzfQ.1sgtpVEkkLk7ab8UmPO_xTCtS-9wXo_RY5qF0KkarZc"
+    );
     this.GetSeries()
       .then((data) => {
-        this.Serie = data[0];
-        this.Logo =this.Serie.Logo;
-        console.log(this.Serie.Logo);
+        this.Series = data;
+        console.log(this.Series);
+        this.Logo = data[0].Logo;
       })
       .catch((err) => console.log(err));
   },
@@ -43,7 +46,5 @@ export default {
 </script>
 
 <style>
-body{
- background: black; 
-}
-  </style>
+
+</style>

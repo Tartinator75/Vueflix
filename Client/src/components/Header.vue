@@ -5,7 +5,7 @@
         <span>About</span>
       </div>
       <div class="Link">
-        <span>Cast</span>
+        <span><router-link to="/">Cast</router-link></span>
       </div>
       <div class="Link">
         <span>Trailer</span>
@@ -49,7 +49,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 1.5s ease-in-out;
+    transition: all 1s ease-in-out;
     &.fading {
       opacity: 0;
     }

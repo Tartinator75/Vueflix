@@ -1,7 +1,7 @@
 <template>
   <div class="Carousel-container">
     <video id="myVideo" autoplay loop muted frameborder="0" allowfullscreen>
-      <source id="source" :src="`${publicPath}casa.mp4`" type="video/mp4" />
+      <source id="source" :src="publicPath + Series[0].Trailer" type="video/mp4" />
     </video>
     <!-- <iframe
       id="myVideo"
@@ -19,29 +19,8 @@
         :spacePadding="20"
         @page-change="BackgroundChange"
       >
-        <slide>
-          <div class="Carousel-Item" :data-video="`${publicPath}casa.mp4`">
-            <div class="Text-Container">
-              <h1>Casa Del Papel</h1>
-              <span>Directed By:Rick Famuyiwa</span>
-            </div>
-          </div>
-        </slide>
-        <slide>
-          <div class="Carousel-Item" :data-video="`${publicPath}got.mp4`">
-            <div class="Text-Container">
-              <h1>GAME OF THONE</h1>
-              <span>Directed By:Rick Famuyiwa</span>
-            </div>
-          </div>
-        </slide>
-        <slide>
-          <div class="Carousel-Item" :data-video="`${publicPath}manda.mp4`">
-            <div class="Text-Container">
-              <h1>THE MANDALORIAN</h1>
-              <span>Directed By:Rick Famuyiwa</span>
-            </div>
-          </div>
+        <slide v-for="Serie in Series" :key="Serie.id">
+          <SlideContent :Item="Serie" />
         </slide>
       </carousel>
     </div>
@@ -50,6 +29,7 @@
 
 <script>
 import apiConfigs from "../configs/api.config";
+import SlideContent from "./SlideContent";
 export default {
   name: "Gallery",
   data() {
@@ -57,17 +37,30 @@ export default {
       publicPath: "http://localhost:8080/",
     };
   },
+  props: {
+    Series: [],
+  },
+  components: {
+    SlideContent,
+  },
   methods: {
     BackgroundChange(e) {
       let el = document.querySelectorAll(".Carousel-Item");
       let Video = el[e].dataset.video;
+      let NewLogo = el[e].dataset.logo;
+
       let Logo = document.querySelector(".Logo");
       var lecteur = document.getElementById("myVideo");
+
       lecteur.classList.add("fading");
       Logo.classList.add("fading");
       setTimeout(function() {
         var sources = lecteur.getElementsByTagName("source");
         sources[0].src = Video;
+
+        var img = Logo.getElementsByTagName("img");
+        img[0].src = NewLogo;
+
         lecteur.load();
         lecteur.classList.remove("fading");
         Logo.classList.remove("fading");
@@ -155,5 +148,4 @@ export default {
     }
   }
 }
-
 </style>
