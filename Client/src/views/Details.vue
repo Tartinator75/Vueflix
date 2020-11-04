@@ -1,5 +1,12 @@
 <template>
   <div class="Details Page">
+    <router-link to="/Home">
+       <div  class="BackBtn">
+        <div class="Circle" >
+          <div class="Shift">›</div>
+        </div>
+      </div>
+    </router-link>
     <div
       class="Background"
       :style="`background:center / cover no-repeat url(${Item.Content[0][0]});`"
@@ -18,8 +25,16 @@
       <transition
         v-on:enter="CastEnter"
         v-on:leave="CastLeave"
-       :duration="{ enter: 1400, leave: 1500 }">
+        :duration="{ enter: 1400, leave: 1500 }"
+      >
         <Cast v-if="show == 'Cast'" :show="show" :Cast="Item.Cast" />
+      </transition>
+      <transition
+        v-on:enter="TrailerEnter"
+        v-on:leave="TrailerLeave"
+        :duration="{ enter: 1400, leave: 1500 }"
+      >
+        <Trailer v-if="show == 'Trailer'" :show="show" :video="Item.Trailer" />
       </transition>
       <transition
         v-on:enter="AboutEnter"
@@ -35,6 +50,7 @@
 <script>
 import SerieApi from "@/mixins/SerieApi.js";
 import Cast from "@/components/Details/Cast";
+import Trailer from "@/components/Details/Trailer";
 import About from "@/components/Details/About";
 import gsap from "gsap";
 export default {
@@ -48,18 +64,19 @@ export default {
   components: {
     Cast,
     About,
+    Trailer
   },
   created() {
     localStorage.setItem(
       "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDM5Njk4MCwiZXhwIjoxNjA0NDgzMzgwfQ.t-jBRt7reAYQlSm7wFEweOFLFBpIRHZ29VJM9I5lad0"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDUwMDQ5MywiZXhwIjoxNjA0NTg2ODkzfQ.1sgtpVEkkLk7ab8UmPO_xTCtS-9wXo_RY5qF0KkarZc"
     );
     this.GetSeriesDetail(this.$route.params.id)
       .then((data) => {
         this.Item = data;
       })
       .catch((err) => console.log(err));
-    NavEnter();
+      this.NavEnter
   },
   methods: {
     navigation(e) {
@@ -92,11 +109,22 @@ export default {
         stagger: 0.1,
       });
     },
-    CastEnter() {
-      gsap.from(
-        ".Cast .OpenBtn",
-        { x: -500 },
+      TrailerEnter() {
+      gsap.fromTo(
+        ".Trailer .trailer-video",
+        { opacity: 0 },
+        { opacity: 1, duration: 1,delay:0.5, ease: [0.6, 0.01, -0.05, 0.9], stagger: 0.1 }
       );
+    },
+    TrailerLeave() {
+      gsap.to(".Trailer .trailer-video", {
+        opacity: 0,
+        duration: 0.8,
+        ease: [0.6, 0.01, -0.05, 0.9],
+      });
+    },
+    CastEnter() {
+      gsap.from(".Cast .OpenBtn", { x: -500 });
       gsap.fromTo(
         ".Cast .List",
         { x: -500 },
@@ -109,48 +137,33 @@ export default {
       );
     },
     CastLeave() {
-     gsap.to(
-        ".Cast .List",
-        {
-          x: -500,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-          onComplete: function() {},
-        }
-      );
-       gsap.to(
-        ".Cast .OpenBtn",
-        {
-          x: -500,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-          onComplete: function() {},
-        }
-      );
-      gsap.to(
-        ".Cast .Affichage .Name",
-        {
-          x: -500,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-         gsap.to(
-        ".Cast .Affichage .Image",
-        {
-          x: -500,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-         gsap.to(
-        ".Cast .Affichage .Description",
-        {
-          x: 500,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
+      gsap.to(".Cast .List", {
+        x: -500,
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9],
+        onComplete: function() {},
+      });
+      gsap.to(".Cast .OpenBtn", {
+        x: -500,
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9],
+        onComplete: function() {},
+      });
+      gsap.to(".Cast .Affichage .Name", {
+        x: -500,
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9],
+      });
+      gsap.to(".Cast .Affichage .Image", {
+        y: -500,
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9],
+      });
+      gsap.to(".Cast .Affichage .Description", {
+        x: 500,
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9],
+      });
     },
   },
 
@@ -224,6 +237,42 @@ export default {
         &.active {
           -webkit-text-fill-color: white;
         }
+      }
+    }
+  }
+   .BackBtn {
+     transform: rotate(90deg);
+    position: absolute;
+    top: 0;
+    right: 10%;
+    width: 5%;
+    height: 10%;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 40%;
+    .Circle {
+      width: 50%;
+      height: 50%;
+      background: white;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        .Shift {
+          transform: rotate(180deg) translateX(4px);
+        }
+      }
+      .Shift {
+             transform: rotate(180deg);
+        font-size: 2em;
+        margin-top: 4px;
+        transition: all 1.1s cubic-bezier(0.19, 1, 0.22, 1);
       }
     }
   }

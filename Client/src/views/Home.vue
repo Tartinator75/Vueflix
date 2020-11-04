@@ -30,7 +30,7 @@ export default {
   created() {
     localStorage.setItem(
       "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDM5Njk4MCwiZXhwIjoxNjA0NDgzMzgwfQ.t-jBRt7reAYQlSm7wFEweOFLFBpIRHZ29VJM9I5lad0"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDUwMDQ5MywiZXhwIjoxNjA0NTg2ODkzfQ.1sgtpVEkkLk7ab8UmPO_xTCtS-9wXo_RY5qF0KkarZc"
     );
     this.GetSeries()
       .then((data) => {

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <transition-page>
+    <TransitionPage>
       <router-view />
-    </transition-page>
+    </TransitionPage>
   </div>
 </template>
 
@@ -29,9 +29,12 @@ html{
   overflow: hidden;
 }
 .Page{
+position: relative;
+  display: block;
   overflow: hidden;
   width: 100%;
   height: 100vh!important;
+
 }
 body {
   background: black;
@@ -40,5 +43,9 @@ body {
 * {
   margin: 0;
   padding: 0;
+}
+a{
+ color: inherit;
+  text-decoration: none;
 }
 </style>

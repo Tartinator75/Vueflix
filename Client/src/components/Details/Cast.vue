@@ -37,13 +37,13 @@
       v-on:leave="AffichageLeave" :duration="{ enter: 1400, leave: 1500 }">
       <div v-if="Affichage == true" class="Affichage">
         <div class="Name-Container">
-          <div class="Name">{{ AffichageElement.name }}</div>
+          <div class="Name">{{ AffichageElement ? AffichageElement.name : Cast[1].name }}</div>
         </div>
         <div class="Image-Container">
-          <img class="Image" :src="AffichageElement.image" />
+          <img class="Image" :src="AffichageElement ? AffichageElement.image : Cast[1].image" />
         </div>
         <div class="Description-Container">
-          <div class="Description">{{ AffichageElement.description }}</div>
+          <div class="Description">{{ AffichageElement ? AffichageElement.description : Cast[1].description }}</div>
         </div>
       </div>
     </transition>
@@ -124,7 +124,7 @@ export default {
          gsap.to(
         ".Cast .Affichage .Image",
         {
-          x: -500,
+          y: -500,
           duration: 1.4,
           ease: [0.6, 0.01, -0.05, 0.9],
         }

@@ -32,6 +32,11 @@ export default {
         const fromDepth = from.path.split(`/`).length;
         transitionName = toDepth < fromDepth ? `slide-right` : `slide-left`;
       }
+       if (transitionName === `slideD`) {
+        const toDepth = to.path.split(`/`).length;
+        const fromDepth = from.path.split(`/`).length;
+        transitionName = toDepth < fromDepth ? `slideD-right` : `slideD-left`;
+      }
       this.transitionMode = DEFAULT_TRANSITION_MODE;
       this.transitionEnterActiveClass = `${transitionName}-enter-active`;
       if (to.meta.transitionName === `zoom`) {
@@ -100,6 +105,33 @@ export default {
   opacity: 0;
   transform: translate(-2em, 0);
 }
+
+
+
+
+.slideD-left-enter-active,
+.slideD-left-leave-active,
+.slideD-right-enter-active,
+.slideD-right-leave-active {
+  transition-duration: 0.8s;
+  transition-property: height, opacity, transform;
+  transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
+  overflow: hidden;
+}
+
+.slideD-left-enter,
+.slideD-right-leave-active {
+  opacity: 0;
+  transform: translate(0, 2em);
+}
+.slideD-left-leave-active,
+.slideD-right-enter {
+  opacity: 0;
+  transform: translate(0,-2em);
+}
+
+
+
 .zoom-enter-active,
 .zoom-leave-active {
   animation-duration: 0.5s;

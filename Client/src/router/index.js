@@ -16,13 +16,13 @@ const routes = [
     path: '/Home',
     name: 'Home',
     component: Home,
-    meta: { transitionName: `zoom` }
+    meta: { transitionName: `slideD` }
   },
   {
     path: '/Details/:id',
     name: 'Details',
     component: Details,
-    meta: { transitionName: `slide` }
+    meta: { transitionName: `slideD` }
   },
 ]
 
