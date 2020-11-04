@@ -10,7 +10,9 @@
         <button class="trial-button">Start Your Free Month</button>
       </div>
       <div class="home-right">
-        <p>SIGN IN</p>
+         <router-link to="/signIn">
+          <p class="signin-link">SIGN IN</p>
+        </router-link>
       </div>
     </div>
   </div>
@@ -30,6 +32,9 @@ export default {
 };
 </script>
 <style scoped>
+.signin-link{
+  color: aliceblue !important;
+}
 body{
   margin: 0px !important;
 }
