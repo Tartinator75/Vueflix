@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Log from '../views/Log.vue'
-import Home from '../views/Home.vue'
+
+
+
+import News from '../views/News.vue'
 import SignIn from '../views/SignIn'
 import Details from '../views/Details.vue'
+import Search from '../views/Search.vue'
 
 Vue.use(VueRouter)
 
@@ -15,9 +19,9 @@ const routes = [
     meta: { transitionName: `slide` }
   },
   {
-    path: '/Home',
-    name: 'Home',
-    component: Home,
+    path: '/News',
+    name: 'News',
+    component: News,
     meta: { transitionName: `slideD` }
   },
   {
@@ -27,9 +31,16 @@ const routes = [
     meta: { transitionName: `slideD` }
   },
   {
-    path: '/SignIn',
+    path: '/Search',
+    name: 'Search',
+    component: Search,
+    meta: { transitionName: `slide` }
+  },
+  {
+    path: '/Log/SignIn',
     name: 'SignIn',
-    component: SignIn
+    component: SignIn,
+    meta: { transitionName: `slide` }
   },
 ]
 
