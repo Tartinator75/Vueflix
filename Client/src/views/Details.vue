@@ -69,7 +69,7 @@ export default {
   created() {
     localStorage.setItem(
       "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDUwMDQ5MywiZXhwIjoxNjA0NTg2ODkzfQ.1sgtpVEkkLk7ab8UmPO_xTCtS-9wXo_RY5qF0KkarZc"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDgzNTEyNCwiZXhwIjoxNjA0OTIxNTI0fQ.qJzjxf_lFIeguBqG0fE5C0HursPE8ISDVxeqKQSMPYI"
     );
     this.GetSeriesDetail(this.$route.params.id)
       .then((data) => {

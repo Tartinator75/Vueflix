@@ -12,9 +12,9 @@ import UserApi from "@/mixins/UserApi.js";
 import AuthApi from "@/mixins/AuthApi.js";
 import SerieApi from "@/mixins/SerieApi.js";
 import Header from "@/components/Header";
-import Gallery from "@/components/Gallery";
+import Gallery from "@/components/News/Gallery";
 export default {
-  name: "Home",
+  name: "News",
 
   data: function() {
     return {
@@ -30,7 +30,7 @@ export default {
   created() {
     localStorage.setItem(
       "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDUwMDQ5MywiZXhwIjoxNjA0NTg2ODkzfQ.1sgtpVEkkLk7ab8UmPO_xTCtS-9wXo_RY5qF0KkarZc"
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDgzNTEyNCwiZXhwIjoxNjA0OTIxNTI0fQ.qJzjxf_lFIeguBqG0fE5C0HursPE8ISDVxeqKQSMPYI"
     );
     this.GetSeries()
       .then((data) => {

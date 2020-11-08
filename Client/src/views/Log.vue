@@ -10,7 +10,7 @@
         <button class="trial-button">Start Your Free Month</button>
       </div>
       <div class="home-right">
-         <router-link to="/signIn">
+         <router-link to="/Log/signIn">
           <p class="signin-link">SIGN IN</p>
         </router-link>
       </div>

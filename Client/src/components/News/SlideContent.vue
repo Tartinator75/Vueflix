@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import ShrinkButton from "./ShrinkButton";
+import ShrinkButton from "../ShrinkButton";
 export default {
   name: "SlideContent",
   data() {

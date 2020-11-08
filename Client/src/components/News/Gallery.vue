@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import apiConfigs from "../configs/api.config";
+import apiConfigs from "../../configs/api.config";
 import SlideContent from "./SlideContent";
 export default {
   name: "Gallery",
@@ -57,9 +57,7 @@ export default {
       setTimeout(function() {
         var sources = lecteur.getElementsByTagName("source");
         sources[0].src = Video;
-
-        var img = Logo.getElementsByTagName("img");
-        img[0].src = NewLogo;
+        Logo.src = NewLogo;
 
         lecteur.load();
         lecteur.classList.remove("fading");
@@ -71,6 +69,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 .VueCarousel-inner {
   padding: 0 !important;
 }
@@ -82,7 +81,6 @@ export default {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    z-index: -1;
     transition: all 1.5s ease-in-out;
 
     &.fading {
@@ -90,6 +88,7 @@ export default {
     }
   }
   #Carousel {
+    z-index: 2;
     font-family: F001, sans-serif;
     font-weight: 400;
     text-transform: uppercase;

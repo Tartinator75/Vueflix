@@ -26,19 +26,18 @@ export default {
   font-display: auto;
 }
 html{
-  overflow: hidden;
 }
 .Page{
 position: relative;
   display: block;
-  overflow: hidden;
+
   width: 100%;
   height: 100vh!important;
-
+    z-index: 1;
 }
 body {
   background: black;
-  overflow: hidden;
+
 }
 * {
   margin: 0;
