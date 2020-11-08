@@ -30,7 +30,7 @@ html{
 .Page{
 position: relative;
   display: block;
-
+    background-color: rgb(16, 16, 16);
   width: 100%;
   height: 100vh!important;
     z-index: 1;
