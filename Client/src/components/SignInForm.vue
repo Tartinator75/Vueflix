@@ -1,12 +1,14 @@
 <template>
-         <form action="" @submit.prevent="submitFunction">
+         <form action="" @submit.prevent="logIn">
                 <div class="form-group">
                  
-                  <input type="email" name=""  id="" placeholder="Email" v-model='email'>
+                  <input type="email" name=""  id="" placeholder="Email" :v-model="email">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="" placeholder="Password" id="" v-model="password">
+                  <input type="password" name="" placeholder="Password" id="" :v-model="password">
                 </div>
+                <h1>{{email}}</h1>
+                <h1>{{password}}</h1>
                 
                   <button>SIGN IN</button>
           </form>
@@ -14,14 +16,23 @@
 </template>
 
 <script>
-import authApi from '../mixins/AuthApi'
+import AuthApi from "@/mixins/AuthApi.js";
     export default {
         name: "SigninForm",
-        props: {
-            email: String,
-            password: String,
-            submitFunction: Function,
+        data() {
+            return {
+                email: "",
+                password:"",
+            }
         },
+        methods: {
+            
+        },
+        computed:{
+
+        },
+        mixins: [AuthApi]
+    
     }
 </script>
 

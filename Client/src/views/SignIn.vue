@@ -8,18 +8,8 @@
         <img src="../assets/netflix-logo.png" alt="">
       </div>
       <div class="home-center">
-          <!-- <SigninForm :email="email" :password="password" :submitFunction="logIn"/> -->
-           <form action="" @submit.prevent="logIn">
-                <div class="form-group">
-                 
-                  <input type="email" name=""  id="" placeholder="Email" v-model='email'>
-                </div>
-                <div class="form-group">
-                  <input type="password" name="" placeholder="Password" id="" v-model="password">
-                </div>
-                
-                  <button>SIGN IN</button>
-          </form>
+          <SigninForm />
+         
       </div>
       <div class="home-right">
          <router-link to="/">
@@ -32,7 +22,7 @@
 
 <script>
 import SigninForm from '../components/SignInForm.vue';
-import AuthApi from "@/mixins/AuthApi.js";
+
 
     export default {
          components: {
@@ -51,7 +41,10 @@ import AuthApi from "@/mixins/AuthApi.js";
                 console.log(mail, password)
             }
         },
-        mixins: [AuthApi]
+        computed:{
+
+        },
+        
     }
 </script>
 
