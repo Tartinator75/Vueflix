@@ -38,7 +38,7 @@ export default {
     };
   },
   props: {
-    Series: [],
+    Series: {type:Array},
   },
   components: {
     SlideContent,

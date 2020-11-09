@@ -16,7 +16,7 @@ export default {
                 })
            }).then(function(res){
                let data = res.json();
-
+               localStorage.setItem("id",data._id);
                localStorage.setItem("token",data.token);
                return data;
            })

@@ -32,7 +32,7 @@ position: relative;
   display: block;
     background-color: rgb(16, 16, 16);
   width: 100%;
-  height: 100vh!important;
+  height: 100%;
     z-index: 1;
 }
 body {

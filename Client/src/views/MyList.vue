@@ -19,7 +19,7 @@ import UserApi from "@/mixins/UserApi.js";
 import Header from "@/components/Header";
 import SearchGallery from "@/components/Search/SearchGallery";
 export default {
-  name: "Search",
+  name: "MyList",
   components: {
     SearchGallery,
     Header,
@@ -40,6 +40,8 @@ export default {
     RemoveList(id) {
       this.MyList = this.MyList.filter((e) => e !== id);
       this.EditUser(localStorage.getItem("id"), { MyList: this.MyList });
+      this.Series = this.Series.filter((e) => e._id !== id);
+      
     },
     Init() {
       this.GetUsersDetail(localStorage.getItem("id"))
@@ -50,21 +52,23 @@ export default {
 
       this.GetSeries()
         .then((data) => {
-          this.Series = data;
-          this.Series.forEach((Serie) => {
-            Serie.Categorie.forEach((Categorie) => {
-              if (!this.Categs.includes(Categorie)) {
-                this.Categs.push(Categorie);
-              }
-            });
+          data.forEach((Serie) => {
+            if (this.MyList.includes(Serie._id)) {
+              this.Series.push(Serie);
+              Serie.Categorie.forEach((Categorie) => {
+                if (!this.Categs.includes(Categorie)) {
+                  this.Categs.push(Categorie);
+                }
+              });
+            }
           });
           this.Load = true;
         })
         .catch((err) => console.log(err));
     },
   },
-   mounted() {
-     this.Init();
+  mounted() {
+    this.Init();
   },
   mixins: [SerieApi, UserApi],
 };

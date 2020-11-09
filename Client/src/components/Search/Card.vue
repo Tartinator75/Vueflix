@@ -1,40 +1,74 @@
 <template>
-  <div class="card"  :style="`background:center / cover no-repeat url(${Item.Content[0][2]});backdrop-filter: brightness(0.6);`">
+  <div
+    class="card"
+    :style="
+      `background:center / cover no-repeat url(${Item.Content[0][2]});backdrop-filter: brightness(0.6);`
+    "
+  >
     <div class="date">
-      {{Item.Year}}
+      {{ Item.Year }}
       <span class="tv_ico"
         ><img src="http://www.cartaodental.com/nbase/image/pc.svg"
       /></span>
     </div>
     <div class="content">
       <div class="title">
-        {{Item.Title}}
+        {{ Item.Title }}
       </div>
-      <div class="text">
-   Directed By:  {{ Item.Director }}
-      </div>
+      <div class="text">Directed By: {{ Item.Director }}</div>
     </div>
     <div class="sinopse">
-      <video id="myVideo" @mouseover="HoverCard" @mouseleave="LeaveCard" loop frameborder="0" allowfullscreen>
+      <video
+        id="myVideo"
+        @mouseover="HoverCard"
+        @mouseleave="LeaveCard"
+        loop
+        frameborder="0"
+        allowfullscreen
+      >
         <source id="source" :src="Item.Trailer" type="video/mp4" />
       </video>
 
       <div class="content-sinopse">
-        <div class="title">Series Synopsis</div>
+        <div class="title">
+          <span>Series Synopsis</span>
+          <div class="ARLIST">
+            <span v-if="InList" class="add" v-on:click="AddList(Item._id)"
+              >+ Add to List</span
+            ><span v-else class="remove" v-on:click="RemoveList(Item._id)"
+              >- Remove to List</span
+            >
+          </div>
+        </div>
         <div class="text">
-         {{Item.Description}}
+          {{ Item.Description }}
         </div>
       </div>
-      <div class="view "><div v-for="Categ in Item.Categorie" :key="Categ.id" >{{Categ}}</div></div>
+      <div class="view ">
+        <div v-for="Categ in Item.Categorie" :key="Categ.id">{{ Categ }}</div>
+      </div>
+      <div class="MoreInfo">
+        <div v-for="Cast in Item.Cast" :key="Cast.id">{{ Cast.name }}</div>
+        <div>{{ Item.Director }}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import UserApi from "@/mixins/UserApi.js";
 export default {
   name: "Card",
+
   props: {
-    Item: {},
+    Item: {type:Object},
+    InList:{type:Boolean},
+    AddList:{
+      type:Function
+    },
+     RemoveList:{
+      type:Function
+    }
   },
   methods: {
     HoverCard(e) {
@@ -45,24 +79,29 @@ export default {
       e.target.pause();
     },
   },
+
+  mixins: [UserApi],
 };
 </script>
 
-<style land="scss" scoped>
+<style lang="scss" scoped>
 .card {
-  color: #e3e3e3;
   font-family: F001, sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   overflow: hidden;
   width: 100%;
-     height: 220px;
+  height: 220px;
   background: #fff;
   box-shadow: 1px 22px 44px rgba(0, 0, 0, 0.19);
   transition: 0.6s;
   border-radius: 2px;
   position: relative;
   display: flex;
+}
+
+.MoreInfo {
+  display: none;
 }
 .card:hover {
   transform: translateY(-15px);
@@ -80,7 +119,7 @@ export default {
   transition-delay: 1s;
 }
 .card:hover .sinopse .content-sinopse .text {
-    pointer-events: none;
+  pointer-events: none;
   bottom: 25%;
   transition-delay: 0.6s;
 }
@@ -115,7 +154,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   align-self: flex-end;
-     padding: 25px 2px 50px 10px;
+  padding: 25px 2px 50px 10px;
 }
 .card .content .title {
   width: 100%;
@@ -145,6 +184,7 @@ export default {
   flex-wrap: wrap;
 }
 .card .sinopse video {
+  pointer-events: none;
   position: absolute;
   top: 0;
   width: 100%;
@@ -167,8 +207,24 @@ export default {
   font-weight: 700;
   position: absolute;
   top: -10%;
-  left: 3%;
+  width: 100%;
+  left: 0;
   transition: 0.6s;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  & div {
+    cursor: pointer;
+    pointer-events: all;
+    font-size: 0.4em;
+    z-index: 99999;
+    & .add {
+      color: green;
+    }
+    & .remove {
+      color: red;
+    }
+  }
 }
 .card .sinopse .content-sinopse .text {
   width: 80%;
@@ -180,5 +236,4 @@ export default {
   font-size: 1em;
   letter-spacing: 1px;
 }
-
 </style>

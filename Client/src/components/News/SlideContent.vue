@@ -26,7 +26,7 @@ export default {
     };
   },
   props: {
-    Item: {},
+    Item: {type:Object},
   },
   components: {
     ShrinkButton,

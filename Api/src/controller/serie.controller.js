@@ -61,7 +61,7 @@ exports.findById = (req, res) => {
 
 
 exports.findByIdAndUpdate = (req, res) => {
-  Serie.findOneAndUpdate(req.body.id, req.body)
+  Serie.findOneAndUpdate(req.params.id, req.body)
     .then(Serie => {
       res.send(Serie);
     })

@@ -6,6 +6,6 @@ router.post('/users',user.create);
 router.get('/users/all/',verifyToken,user.findAll);
 router.get('/users/id/:id',verifyToken,user.findById);
 router.delete('/users/idremove/:id',verifyToken,user.findByIdAndRemove);
-router.put('/users/idupdate/',verifyToken,user.findByIdAndUpdate);
+router.put('/users/idupdate/:id',verifyToken,user.findByIdAndUpdate);
 router.delete('/users/remove/:id',verifyToken,user.removeALL);
 module.exports = router;

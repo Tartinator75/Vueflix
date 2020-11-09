@@ -19,7 +19,7 @@
 export default {
   name: "About",
   props: {
-    Item: Object,
+    Item: {type:Object},
   },
   methods: {
 

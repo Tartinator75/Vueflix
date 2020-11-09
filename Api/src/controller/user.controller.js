@@ -7,7 +7,8 @@ exports.create = (req, res) => {
     email: req.body.email,
     password: hashedpassword,
     firstname: req.body.lastname,
-    admin: req.body.admin
+    admin: req.body.admin,
+    MyList: req.body.MyList
   });
 
   /*if (err) {
@@ -52,7 +53,7 @@ exports.findById = (req, res) => {
 
 
 exports.findByIdAndUpdate = (req, res) => {
-  User.findOneAndUpdate(req.body.id, req.body)
+  User.findOneAndUpdate(req.params.id, req.body)
     .then(user => {
       res.send(user);
     })

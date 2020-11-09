@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Log from '../views/Log.vue'
 
 
-
+import MyList from '../views/MyList.vue'
 import News from '../views/News.vue'
 import SignIn from '../views/SignIn'
 import Details from '../views/Details.vue'
@@ -29,6 +29,12 @@ const routes = [
     name: 'Details',
     component: Details,
     meta: { transitionName: `slideD` }
+  },
+  {
+    path: '/MyList',
+    name: 'MyList',
+    component: MyList,
+    meta: { transitionName: `slide` }
   },
   {
     path: '/Search',

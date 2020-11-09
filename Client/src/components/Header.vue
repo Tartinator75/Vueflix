@@ -1,38 +1,31 @@
 <template>
   <div id="header">
-    <img class="logoHeader Logo" :src="Logo" v-on:click="NavigateMain" />
+    <img class="logoHeader Logo" :src="Logo" v-on:click="NavigateSearch" />
     <nav role="navigation">
       <ul>
         <li id="selections">
           <a id="navigate">
-            Navegar
-            <v-icon name="sort-down" scale="1" color="#e5e5e5" />
+            Navigation
           </a>
           <ul class="dropdown">
-            <li v-on:click="NavigateMain">
+            <li >
               <a>News</a>
             </li>
-            <li>
-              <a>Séries</a>
+            <li v-on:click="NavigateSearch">
+              <a>Search</a>
             </li>
             <li v-on:click="NavigateMyList">
               <a>My List</a>
             </li>
           </ul>
         </li>
-        <li class="items" v-on:click="NavigateMain">News</li>
-        <li class="items">Séries</li>
-        <li class="items">Filmes</li>
+        <li class="items"  v-on:click="NavigateNews">News</li>
+        <li class="items" v-on:click="NavigateSearch">Search</li>
         <li class="items" v-on:click="NavigateMyList">My List</li>
+          <li class="items" v-on:click="Sign">SignLocalStorage</li>
         <li></li>
       </ul>
     </nav>
-    <div id="textForm">
-      <form>
-        <input type="text" name="text" placeholder="Títulos, gente e gêneros" />
-      </form>
-    </div>
-
   </div>
 </template>
 
@@ -41,21 +34,32 @@ export default {
   name: "Header",
   data() {
     return {
-      inputSearch: ""
+      inputSearch: "",
     };
   },
-  props:{
-      Logo: String,
+  props: {
+    Logo: {type:String},
   },
 
   methods: {
-    NavigateMain() {
-      this.$router.push({ name: "Main" });
+    Sign() {
+      localStorage.setItem(
+        "token",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDkzODMyMiwiZXhwIjoxNjA1MDI0NzIyfQ.nKEMxb-yNf7pkwlWhwdGF7ZWKwm8yUBPIylGEWfZiyU"
+      );
+      localStorage.setItem("id", "5f934004ebb13a1c648cbb10");
+      alert("SIGNIN");
+    },
+     NavigateNews() {
+      this.$router.push({ name: "News" });
+    },
+    NavigateSearch() {
+      this.$router.push({ name: "Search" });
     },
     NavigateMyList() {
       this.$router.push({ name: "MyList" });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -66,11 +70,10 @@ export default {
   background: #141414;
   display: flex;
   align-items: center;
-    position: relative;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
   height: 10vh;
-
 }
 
 .logoHeader {
@@ -144,29 +147,6 @@ ul li ul li {
   display: flex;
   justify-content: space-around;
   width: 50%;
-}
-input[type="text"] {
-  width: 0px;
-  border: none;
-  color: #e5e5e5;
-  font-size: 13px;
-  background-color: #141414;
-  background-image: url("../assets/search.png"); 
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  padding: 12px 7px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
-
-input[type="text"]:focus {
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid #e5e5e5;
-}
-#textForm {
-  width: 15%;
 }
 
 #icons {

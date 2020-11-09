@@ -6,6 +6,6 @@ router.post('/series',Serie.create);
 router.get('/series/all/',verifyToken,Serie.findAll);
 router.get('/series/id/:id',verifyToken,Serie.findById);
 router.delete('/series/idremove/:id',verifyToken,Serie.findByIdAndRemove);
-router.put('/series/idupdate/',verifyToken,Serie.findByIdAndUpdate);
+router.put('/series/idupdate/:id',verifyToken,Serie.findByIdAndUpdate);
 router.delete('/series/remove/:id',verifyToken,Serie.removeALL);
 module.exports = router;

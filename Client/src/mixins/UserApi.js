@@ -39,14 +39,14 @@ export default {
       });
     },
 
-    EditUser(idx, bodyx) {
-      return fetch(url + "/users/idupdate/" + idx, {
+    EditUser(id, body) {
+      return fetch(url + "/users/idupdate/" + id, {
         method: "PUT",
         headers: {
           "x-access-token": localStorage.getItem("token"),
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(bodyx),
+        body: JSON.stringify(body),
       }).then(function(res) {
         console.log(res);
         return res.json();

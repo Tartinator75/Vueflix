@@ -17,7 +17,7 @@
 export default {
   name: "Trailer",
   props: {
-    video: String,
+    video: {type:String},
   },
    data() {
     return {
