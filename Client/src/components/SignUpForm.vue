@@ -1,13 +1,13 @@
 <template>
   <form action="" @submit.prevent="SignUp">
     <div class="form-group">
-      <input v-model="Firstname" type="text" name="" id="" placeholder="firstname" />
+      <input v-model="Firstname" type="text"  placeholder="firstname" />
     </div>
     <div class="form-group">
-      <input v-model="Lastname" type="text" name="" id="" placeholder="lastname" />
+      <input v-model="Lastname" type="text"  placeholder="lastname" />
     </div>
     <div class="form-group">
-      <input v-model="Email" type="email" name="" id="" placeholder="Email" />
+      <input v-model="Email" type="email" placeholder="Email" />
     </div>
     <div class="form-group">
       <input
@@ -15,8 +15,7 @@
         type="password"
         name=""
         placeholder="Password"
-        id=""
-       
+
       />
     </div>
 
@@ -30,34 +29,28 @@ export default {
   name: "SignupForm",
    data() {
     return {
-    Firstname:"",
-    Lastname:"",
-    Email:"",
-    Password:"",
-    admin: false,
-    MyList: []
+    Firstname:"test",
+    Lastname:"test",
+    Email:"test@test.test",
+    Password:"test",
     }
   },
   methods:{
-    SignUp: function(){
-        let firstname = this.Firstname;
-        let lastname = this.Lastname;
-        let email = this.Email;
-        let password = this.Password;
-        let admin = this.admin;
-        let myList = this.MyList;
-
+    SignUp(){
         let user = {
-            'firstname' : firstname,
-            'lastname' : lastname,
-            'email' : email,
-            'password' : password,
-            'admin' : admin,
-            'MyList': myList
+            "firstname" : this.Firstname,
+            "lastname" : this.Lastname,
+            "email" : this.Email,
+            "password" : this.Password,
+            "admin" : false,
         }
-      
-         this.Create(user);
-      
+         this.Create(user).then(function(res) {
+        if (res.auth == true) {
+          this.$router.push("/Search");
+        } else {
+          console.log("non");
+        }
+      });
     }
   },
   mixins: [UserApi],

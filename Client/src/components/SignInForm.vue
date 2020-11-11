@@ -22,29 +22,22 @@ export default {
   name: "SigninForm",
    data() {
     return {
-    Email:"",
-    Password:""
+    Email:"admin@admin.admin",
+    Password:"admin"
     }
   },
   methods:{
     logIn: function(){
       const self = this;
-   
       this.Login(this.Email, this.Password)
       .then(function(res){
-        
         if(res.auth == true){
-          self.$router.push("/News");
+          self.$router.push("/Search");
         }
         else{
           console.log('non')
         }
-      });
-
-    
-   
-
-      
+      });  
     }
   },
   mixins: [AuthApi],

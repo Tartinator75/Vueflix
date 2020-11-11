@@ -12,7 +12,7 @@
 </template>
 
 <script>
-const DEFAULT_TRANSITION = `fade`;
+const DEFAULT_TRANSITION = `slide`;
 const DEFAULT_TRANSITION_MODE = `out-in`;
 export default {
   name: `TransitionPage`,
@@ -39,16 +39,7 @@ export default {
       }
       this.transitionMode = DEFAULT_TRANSITION_MODE;
       this.transitionEnterActiveClass = `${transitionName}-enter-active`;
-      if (to.meta.transitionName === `zoom`) {
-        this.transitionMode = `in-out`;
-        this.transitionEnterActiveClass = `zoom-enter-active`;
-        document.body.style.overflow = `hidden`;
-      }
-      if (from.meta.transitionName === `zoom`) {
-        this.transitionMode = null;
-        this.transitionEnterActiveClass = null;
-        document.body.style.overflow = null;
-      }
+
       this.transitionName = transitionName;
       next();
     });
@@ -59,15 +50,12 @@ export default {
     },
     enter(element) {
       const { height } = getComputedStyle(element);
-      // eslint-disable-next-line no-param-reassign
       element.style.height = this.prevHeight;
       setTimeout(() => {
-        // eslint-disable-next-line no-param-reassign
         element.style.height = height;
       });
     },
     afterEnter(element) {
-      // eslint-disable-next-line no-param-reassign
       element.style.height = `auto`;
     },
   },
@@ -75,17 +63,7 @@ export default {
 </script>
 
 <style lang="scss">
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.3s;
-  transition-property: height, opacity;
-  transition-timing-function: ease;
-  overflow: hidden;
-}
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
-}
+
 .slide-left-enter-active,
 .slide-left-leave-active,
 .slide-right-enter-active,
@@ -130,24 +108,4 @@ export default {
   transform: translate(0,-2em);
 }
 
-
-
-.zoom-enter-active,
-.zoom-leave-active {
-  animation-duration: 0.5s;
-  animation-fill-mode: both;
-  animation-name: zoom;
-}
-.zoom-leave-active {
-  animation-direction: reverse;
-}
-@keyframes zoom {
-  from {
-    opacity: 0;
-    transform: scale3d(0.3, 0.3, 0.3);
-  }
-  100% {
-    opacity: 1;
-  }
-}
 </style>
