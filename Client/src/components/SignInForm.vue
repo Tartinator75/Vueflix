@@ -1,16 +1,13 @@
 <template>
   <form action="" @submit.prevent="logIn">
     <div class="form-group">
-      <input v-model="Email" type="email" name="" id="" placeholder="Email" />
+      <input v-model="Email" type="email" placeholder="Email" />
     </div>
     <div class="form-group">
       <input
        v-model="Password"
         type="password"
-        name=""
         placeholder="Password"
-        id=""
-       
       />
     </div>
     
