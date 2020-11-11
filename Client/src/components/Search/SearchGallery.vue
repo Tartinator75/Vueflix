@@ -1,19 +1,17 @@
 <template>
   <div class="SearchGallery">
-    <div class="Categs" v-for="Categ in Categs" :key="Categ.id">
-      <h1>{{ Categ }}</h1>
-      <carousel
+    <SearchController placeholder="Titre Acteur Année..." />
+    <div class="Categs" v-for="(Categ,index) in Categs" :key="index + Categ">
+      <h1 v-if="GetSerieCateg(Categ).length > 0">{{ Categ }}</h1>
+       <carousel
         :per-page="3"
-        :navigate-to="0"
         :mouse-drag="true"
-        :paginationEnabled="false"
-        :navigationEnabled="true"
         :spacePadding="20"
       >
-        <slide v-bind:key="Serie.id" v-for="Serie in GetSerieCateg(Categ)">
-          <Card :Item="Serie" />
-        </slide>
-      </carousel>
+        <slide v-for="(Serie,index) in GetSerieCateg(Categ)" :key="index + Serie.Title">
+           <Card :Item="Serie" :InList="CheckList(Serie._id)" :AddList="AddList" :RemoveList="RemoveList"/> 
+        </slide> 
+      </carousel> 
     </div>
   </div>
 </template>
@@ -21,30 +19,48 @@
 <script>
 import { Carousel, Slide } from "vue-carousel";
 import Card from "@/components/Search/Card";
+import SearchController from "@/components/Search/SearchController";
 export default {
   name: "SearchGallery",
   components: {
     Card,
+    SearchController,
   },
   props: {
-    Series: [],
-    Categs: [],
+    Series: {type:Array},
+    Categs: {type:Array},
+    MyListx: {type:Array},
+      AddList:{
+      type:Function
+    },
+     RemoveList:{
+      type:Function
+    }
   },
   methods: {
     GetSerieCateg(categ) {
       var result = [];
-      console.log(this.Series);
       this.Series.forEach((Serie) => {
-        if (Serie.Categorie.indexOf(categ) >= 0) {
+        if (Serie.Categorie.indexOf(categ) >-1) {
           result.push(Serie);
         }
       });
       return result;
     },
+    CheckList(id) {
+      if (this.MyListx.toString().indexOf(id) > -1 && this.MyListx.length > 0) {
+        return false;
+      } else {
+        return true;
+      }
+    },
   },
-  mounted() {
-    this.GetSerieCateg("Action");
-  },
+  mounted(){
+
+    console.log(this.Series);
+    console.log(this.Categs);
+  }
+
 };
 </script>
 
@@ -56,7 +72,9 @@ export default {
   /* display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 30%));
   grid-gap: 30px; */
-
+  & div {
+    color: #fff;
+  }
   h1 {
     font-family: F001, sans-serif;
     font-weight: 400;

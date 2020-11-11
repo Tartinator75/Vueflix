@@ -22,6 +22,10 @@ lastname:{
     type:String,
   
 },
+MyList:{
+    type:[String],
+  
+},
 admin:{
     type:Boolean,
 },},{

@@ -37,7 +37,7 @@ export default {
       .then(function(res){
         
         if(res.auth == true){
-          // self.$router.push("/News");
+          self.$router.push("/News");
         }
         else{
           console.log('non')

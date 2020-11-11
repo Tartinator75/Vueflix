@@ -1,6 +1,6 @@
 <template>
   <div class="Details Page">
-    <router-link to="/Home">
+    <router-link to="/News">
        <div  class="BackBtn">
         <div class="Circle" >
           <div class="Shift">›</div>
@@ -67,16 +67,12 @@ export default {
     Trailer
   },
   created() {
-    localStorage.setItem(
-      "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDgzNTEyNCwiZXhwIjoxNjA0OTIxNTI0fQ.qJzjxf_lFIeguBqG0fE5C0HursPE8ISDVxeqKQSMPYI"
-    );
     this.GetSeriesDetail(this.$route.params.id)
       .then((data) => {
         this.Item = data;
       })
       .catch((err) => console.log(err));
-      this.NavEnter
+      this.NavEnter();
   },
   methods: {
     navigation(e) {

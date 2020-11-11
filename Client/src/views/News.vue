@@ -19,7 +19,7 @@ export default {
   data: function() {
     return {
       Series:[],
-      Logo: String,
+      Logo: "../assets/netflix-logo.png",
     };
   },
   components: {
@@ -30,7 +30,7 @@ export default {
   created() {
     this.GetSeries()
       .then((data) => {
-        this.Series = data;
+        this.Series = data.slice(0, 3);
         console.log(this.Series);
         this.Logo = data[0].Logo;
       })

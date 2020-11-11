@@ -60,8 +60,8 @@ export default {
     };
   },
   props: {
-    Cast: Array,
-    show: String,
+    Cast: {type:Array},
+    show: {type:String},
     AffichageElement: {},
   },
   methods: {
