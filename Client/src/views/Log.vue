@@ -7,7 +7,7 @@
       <div class="home-left">
         <img src="../assets/netflix-logo.png" alt="">
         <h2>WATCH TV SHOWS & MOVIES ANYWHERE. ANYTIME</h2>
-        <button class="trial-button">Start Your Free Month</button>
+        <button v-on:click="navigateToSignUp" class="trial-button">Start Your Free Month</button>
       </div>
       <div class="home-right">
          <router-link to="/Log/signIn">
@@ -27,6 +27,11 @@ import SerieApi from "@/mixins/SerieApi.js";
 export default {
   name: "Home",
   
+  methods: {
+    navigateToSignUp(){
+      this.$router.push({ name: "SignUp" });
+    }
+  },
  
   mixins: [AuthApi],
 };

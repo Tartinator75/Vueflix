@@ -13,8 +13,7 @@
        
       />
     </div>
-    <h1>{{ Email }}</h1>
-    <h1>{{ Password }}</h1>
+    
 
     <button>SIGN IN</button>
   </form>
@@ -28,6 +27,27 @@ export default {
     return {
     Email:"",
     Password:""
+    }
+  },
+  methods:{
+    logIn: function(){
+      const self = this;
+   
+      this.Login(this.Email, this.Password)
+      .then(function(res){
+        
+        if(res.auth == true){
+          self.$router.push("/News");
+        }
+        else{
+          console.log('non')
+        }
+      });
+
+    
+   
+
+      
     }
   },
   mixins: [AuthApi],
