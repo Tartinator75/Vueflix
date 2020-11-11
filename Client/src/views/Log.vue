@@ -54,7 +54,7 @@ body{
     top: 50%;
     left: 50%;
     width: 100%;
-    height: 100%;
+    height: 150%;
     z-index: -100;
     transform: translateX(-50%) translateY(-50%);
     filter: brightness(0.2)

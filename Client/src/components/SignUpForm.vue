@@ -46,6 +46,7 @@ export default {
         let password = this.Password;
         let admin = this.admin;
         let myList = this.MyList;
+        const self = this;
 
         let user = {
             'firstname' : firstname,
@@ -56,9 +57,12 @@ export default {
             'MyList': myList
         }
       
-         this.Create(user);
+         this.Create(user)
+         .then(function(res){
+           self.$router.push({ name: "SignIn" });
+         });
       
-    }
+    },
   },
   mixins: [UserApi],
 };

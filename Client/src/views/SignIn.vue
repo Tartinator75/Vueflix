@@ -39,7 +39,7 @@ body {
 }
 .home {
   height: 100%;
-  width: 100%;
+  width: 150%;
   overflow: hidden;
 }
 video,
