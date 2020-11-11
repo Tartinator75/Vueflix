@@ -28,10 +28,6 @@ export default {
   },
   methods: {},
   created() {
-    localStorage.setItem(
-      "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDgzNTEyNCwiZXhwIjoxNjA0OTIxNTI0fQ.qJzjxf_lFIeguBqG0fE5C0HursPE8ISDVxeqKQSMPYI"
-    );
     this.GetSeries()
       .then((data) => {
         this.Series = data;

@@ -16,10 +16,13 @@ export default {
                 })
            }).then(function(res){
                let data = res.json();
-
+                console.log(data)
                localStorage.setItem("token",data.token);
-               return data;
+                
+               
+            return data;               
            })
+        
         },
         GetUserDetail(id){
            fetch(url+"/users/"+id).then(function(res){
