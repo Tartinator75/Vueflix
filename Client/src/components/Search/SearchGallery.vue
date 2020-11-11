@@ -64,21 +64,40 @@ export default {
 
 <style lang="scss" >
 .SearchGallery {
-  overflow: auto;
+
   width: 100%;
   height: 100%;
   & div {
     color: #fff;
   }
   h1 {
+    position: relative;
     font-family: F001, sans-serif;
     font-weight: 400;
     text-transform: uppercase;
+    &:before {
+    content: "";
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    background: white;
+    height: 2px;
+    width: 50%;
+}
   }
 }
 @media only screen and (max-width: 906px) {
 .Element-Container {
-    margin-top: 20%;
+    margin-top: 22%;
   }
+
+.SearchGallery h1:before {
+
+    left: 50%;
+    top: 50%;
+    background: white;
+    height: 2px;
+    width: 40%;
+}
 }
 </style>

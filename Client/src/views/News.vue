@@ -1,7 +1,8 @@
 <template>
   <div class="Home Page">
     <Header :Logo="Logo"></Header>
-    <Gallery :Series="Series"></Gallery>
+    <NewsGallery :Series="Series"></NewsGallery>
+    <Upcoming/>
   </div>
 </template>
 
@@ -12,7 +13,8 @@ import UserApi from "@/mixins/UserApi.js";
 import AuthApi from "@/mixins/AuthApi.js";
 import SerieApi from "@/mixins/SerieApi.js";
 import Header from "@/components/Header";
-import Gallery from "@/components/News/Gallery";
+import NewsGallery from "@/components/News/NewsGallery";
+import Upcoming from "./Upcoming";
 export default {
   name: "News",
 
@@ -24,7 +26,8 @@ export default {
   },
   components: {
     Header,
-    Gallery,
+    NewsGallery,
+    Upcoming
   },
   methods: {},
   created() {

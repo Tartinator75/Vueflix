@@ -44,4 +44,7 @@ export default {
   margin-top: 30px;
 }
 
+element.style {
+}
+
 </style>

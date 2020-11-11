@@ -15,7 +15,6 @@
     ></iframe> -->
     <div id="Carousel">
       <carousel
-        :per-page="1"
         :mouse-drag="true"
         :centerMode="false"
         :paginationEnabled="false"
@@ -35,7 +34,7 @@
 import apiConfigs from "../../configs/api.config";
 import SlideContent from "./SlideContent";
 export default {
-  name: "Gallery",
+  name: "NewsGallery",
   data() {
     return {
       publicPath: "http://localhost:8080/",
@@ -99,7 +98,7 @@ export default {
     line-height: 1;
     .Carousel-Item {
       position: relative;
-      height: 90vh;
+      height: 60vh;
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -119,6 +118,7 @@ export default {
         content: "";
       }
       .Text-Container {
+        margin-right: 3%;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -160,6 +160,7 @@ export default {
         width: 3vh!important;
       }
       .Text-Container {
+            margin-right: unset!important;
         &:before {
           width: 40vh!important;
           height: 40vh!important;

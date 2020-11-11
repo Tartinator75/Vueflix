@@ -1,6 +1,6 @@
 <template>
   <div class="Details Page">
-    <Header :Logo="Item.Logo"/>
+    <Header :Logo="Item.Logo" />
     <div
       class="Background"
       :style="`background:center / cover no-repeat url(${Item.Content[0][0]});`"
@@ -39,11 +39,12 @@
 
 <script>
 import SerieApi from "@/mixins/SerieApi.js";
+import DetailsAnimation from "@/mixins/DetailsAnimation.js";
 import Cast from "@/components/Details/Cast";
 import Trailer from "@/components/Details/Trailer";
 import About from "@/components/Details/About";
 import Header from "@/components/Header";
-import gsap from "gsap";
+
 export default {
   name: "Details",
   data() {
@@ -56,7 +57,7 @@ export default {
     Cast,
     About,
     Trailer,
-    Header
+    Header,
   },
   created() {
     this.GetSeriesDetail(this.$route.params.id)
@@ -64,7 +65,7 @@ export default {
         this.Item = data;
       })
       .catch((err) => console.log(err));
-      this.NavEnter();
+    this.NavEnter();
   },
   methods: {
     navigation(e) {
@@ -75,93 +76,14 @@ export default {
       e.target.classList.add("active");
       this.show = where;
     },
-    NavEnter() {
-      gsap.fromTo(
-        ".Navigation div",
-        { x: -250 },
-        { x: 0, duration: 1, ease: [0.6, 0.01, -0.05, 0.9], stagger: 0.3 }
-      );
-    },
-    AboutEnter() {
-      gsap.fromTo(
-        ".About div div",
-        { y: 250 },
-        { y: 0, duration: 1, ease: [0.6, 0.01, -0.05, 0.9], stagger: 0.1 }
-      );
-    },
-    AboutLeave() {
-      gsap.to(".About div div", {
-        y: 250,
-        duration: 1,
-        ease: [0.6, 0.01, -0.05, 0.9],
-        stagger: 0.1,
-      });
-    },
-      TrailerEnter() {
-      gsap.fromTo(
-        ".Trailer .trailer-video",
-        { opacity: 0 },
-        { opacity: 1, duration: 1,delay:0.5, ease: [0.6, 0.01, -0.05, 0.9], stagger: 0.1 }
-      );
-    },
-    TrailerLeave() {
-      gsap.to(".Trailer .trailer-video", {
-        opacity: 0,
-        duration: 0.8,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-    },
-    CastEnter() {
-      gsap.from(".Cast .OpenBtn", { x: -500 });
-      gsap.fromTo(
-        ".Cast .List",
-        { x: -500 },
-        {
-          x: 0,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-          onComplete: function() {},
-        }
-      );
-    },
-    CastLeave() {
-      gsap.to(".Cast .List", {
-        x: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-        onComplete: function() {},
-      });
-      gsap.to(".Cast .OpenBtn", {
-        x: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-        onComplete: function() {},
-      });
-      gsap.to(".Cast .Affichage .Name", {
-        x: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-      gsap.to(".Cast .Affichage .Image", {
-        y: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-      gsap.to(".Cast .Affichage .Description", {
-        x: 500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-    },
   },
-
-  mixins: [SerieApi],
+  mixins: [SerieApi,DetailsAnimation],
 };
 </script>
 
 <style lang="scss">
 .Details {
-  height: 100vh!important;
+  height: 100vh !important;
   overflow: hidden;
   .Background {
     background-size: cover;
@@ -230,8 +152,8 @@ export default {
       }
     }
   }
-   .BackBtn {
-     transform: rotate(90deg);
+  .BackBtn {
+    transform: rotate(90deg);
     position: absolute;
     top: 0;
     right: 10%;
@@ -259,7 +181,7 @@ export default {
         }
       }
       .Shift {
-             transform: rotate(180deg);
+        transform: rotate(180deg);
         font-size: 2em;
         margin-top: 4px;
         transition: all 1.1s cubic-bezier(0.19, 1, 0.22, 1);
@@ -271,7 +193,7 @@ export default {
   .Content {
     .Navigation {
       div {
-        font-size: 3em!important;
+        font-size: 3em !important;
       }
     }
   }
