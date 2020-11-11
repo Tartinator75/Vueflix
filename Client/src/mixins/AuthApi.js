@@ -1,11 +1,12 @@
 import apiConfigs from "@/configs/api.config.js";
-const url = "http://localhost:3300/api/v1";
+const url = apiConfigs.urlApi;
 const headers = {
     "Content-Type": "application/json"
   };
 export default {
     methods: {
         Login(user,password){
+            console.log(url);
             return fetch(url+"/auth/login", {
                method:'POST',
                headers,
