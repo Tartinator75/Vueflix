@@ -1,6 +1,6 @@
 <template>
   <div class="MyList Page">
-    <Header Logo="../assets/netflix-logo.png"></Header>
+    <Header Logo="/logo-big.png"></Header>
     <div class="Search-Container" v-if="Load">
       <SearchGallery
         :Series="Series"

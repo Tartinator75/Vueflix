@@ -1,7 +1,11 @@
 <template>
   <div class="Carousel-container">
     <video id="myVideo" autoplay loop muted frameborder="0" allowfullscreen>
-      <source id="source" :src="publicPath + Series[0].Trailer" type="video/mp4" />
+      <source
+        id="source"
+        :src="publicPath + Series[0].Trailer"
+        type="video/mp4"
+      />
     </video>
     <!-- <iframe
       id="myVideo"
@@ -13,10 +17,10 @@
       <carousel
         :per-page="1"
         :mouse-drag="true"
-        :centerMode="true"
+        :centerMode="false"
         :paginationEnabled="false"
         :perPage="1"
-        :spacePadding="20"
+       
         @page-change="BackgroundChange"
       >
         <slide v-for="Serie in Series" :key="Serie.id">
@@ -38,7 +42,7 @@ export default {
     };
   },
   props: {
-    Series: {type:Array},
+    Series: { type: Array },
   },
   components: {
     SlideContent,
@@ -68,8 +72,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
-
+<style lang="scss">
 .VueCarousel-inner {
   padding: 0 !important;
 }
@@ -137,6 +140,33 @@ export default {
           font-size: 8em;
           transition: all 1.5s ease-in-out;
           transition-delay: 1s;
+        }
+        span {
+          font-size: 1.5em;
+          color: white;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 906px) {
+  .Carousel-container {
+    .Carousel-Item {
+      &:before {
+        width: 3vh!important;
+      }
+      &::after {
+        width: 3vh!important;
+      }
+      .Text-Container {
+        &:before {
+          width: 40vh!important;
+          height: 40vh!important;
+        }
+        h1 {
+          font-weight: 100;
+          font-size: 3em!important;
         }
         span {
           font-size: 1.5em;

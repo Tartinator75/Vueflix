@@ -5,7 +5,7 @@
     </video>
     <div class="home-menu">
       <div class="home-left">
-        <img src="../assets/netflix-logo.png" alt="" />
+        <img src="../assets/logo-big.png" alt="" />
       </div>
       <div class="home-center">
         <SigninForm />
@@ -96,7 +96,7 @@ source {
 }
 img {
   width: 10vw;
-  height: 15vh;
+  height: 6vh;
   margin: 0 5vw;
 }
 .home-center {

@@ -3,9 +3,9 @@
     <img class="logoHeader Logo" :src="Logo" v-on:click="NavigateSearch" />
     <nav role="navigation">
       <ul>
-        <li class="items" v-on:click="NavigateNews">News</li>
-        <li class="items" v-on:click="NavigateSearch">Search</li>
-        <li class="items" v-on:click="NavigateMyList">My List</li>
+        <li v-bind:class="$router.history.current.name == 'News' ? 'items active':'items'"  v-on:click="NavigateNews">News</li>
+        <li v-bind:class="$router.history.current.name == 'Search' ? 'items active':'items'" v-on:click="NavigateSearch">Search</li>
+        <li v-bind:class="$router.history.current.name == 'MyList' ? 'items active':'items'" v-on:click="NavigateMyList">My List</li>
       </ul>
     </nav>
   </div>
@@ -24,14 +24,6 @@ export default {
   },
 
   methods: {
-    Sign() {
-      localStorage.setItem(
-        "token",
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNTA5Njk2OCwiZXhwIjoxNjA1MTgzMzY4fQ.JOB5c4CeDKj-R31SI0vjgaOru-WlzKcHjNf4qJYR6hQ"
-      );
-      localStorage.setItem("id", "5f934004ebb13a1c648cbb10");
-      alert("SIGNIN");
-    },
     NavigateNews() {
       this.$router.push({ name: "News" });
     },
@@ -42,6 +34,9 @@ export default {
       this.$router.push({ name: "MyList" });
     },
   },
+      created(){
+      console.log(this.$router);
+    }
 };
 </script>
 
@@ -97,6 +92,10 @@ li:hover {
 }
 .items:hover {
   color: #ccc;
+}
+.items.active{
+  color: #c71925;
+  pointer-events: none;
 }
 ul li ul {
   visibility: hidden;

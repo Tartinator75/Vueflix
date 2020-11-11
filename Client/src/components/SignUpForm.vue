@@ -44,8 +44,8 @@ export default {
             "password" : this.Password,
             "admin" : false,
         }
-         this.Create(user).then(function(res) {
-        if (res.auth == true) {
+         this.Create(user).then((res)=> {
+        if (res._id) {
           this.$router.push("/Search");
         } else {
           console.log("non");

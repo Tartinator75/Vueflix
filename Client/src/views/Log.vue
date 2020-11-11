@@ -5,7 +5,7 @@
     </video>
     <div class="home-menu">
       <div class="home-left">
-        <img src="../assets/netflix-logo.png" alt="">
+        <img src="../assets/logo-big.png" alt="">
         <h2>WATCH TV SHOWS & MOVIES ANYWHERE. ANYTIME</h2>
         <button v-on:click="navigateToSignUp" class="trial-button">Start Your Free Month</button>
       </div>
@@ -87,9 +87,12 @@ body{
     
   }
   .home-left h2{
-    margin: 0;
     line-height: 100%;
-     margin: 0 5vw;
+    margin: 5vw;
+    margin-top: 5vw;
+    margin-right: 5vw;
+    margin-bottom: 0vw;
+    margin-left: 5vw;
   }
   .home-left{
     text-align: left;
@@ -105,7 +108,7 @@ body{
   }
   img{
     width: 10vw;
-    height: 15vh;
+    height: 6vh;
      margin: 0 5vw;
   }
 </style>
