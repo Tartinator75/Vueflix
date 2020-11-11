@@ -1,20 +1,10 @@
 <template>
   <div class="Details Page">
-    <router-link to="/News">
-       <div  class="BackBtn">
-        <div class="Circle" >
-          <div class="Shift">›</div>
-        </div>
-      </div>
-    </router-link>
+    <Header :Logo="Item.Logo"/>
     <div
       class="Background"
       :style="`background:center / cover no-repeat url(${Item.Content[0][0]});`"
     ></div>
-    <div class="top">
-      <div class="Logo"><img :src="Item.Logo" /></div>
-      <div class="Back" @click="$router.go(-1)"></div>
-    </div>
     <div class="Content">
       <div class="Navigation">
         <div class="active" v-on:click="navigation" data-nav="About">About</div>
@@ -52,6 +42,7 @@ import SerieApi from "@/mixins/SerieApi.js";
 import Cast from "@/components/Details/Cast";
 import Trailer from "@/components/Details/Trailer";
 import About from "@/components/Details/About";
+import Header from "@/components/Header";
 import gsap from "gsap";
 export default {
   name: "Details",
@@ -64,7 +55,8 @@ export default {
   components: {
     Cast,
     About,
-    Trailer
+    Trailer,
+    Header
   },
   created() {
     this.GetSeriesDetail(this.$route.params.id)
@@ -169,12 +161,14 @@ export default {
 
 <style lang="scss">
 .Details {
+  height: 100vh!important;
+  overflow: hidden;
   .Background {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     position: absolute;
     z-index: -1;
     filter: brightness(0.4);
@@ -273,6 +267,13 @@ export default {
     }
   }
 }
-
-// TRANSITION
+@media only screen and (max-width: 906px) {
+  .Content {
+    .Navigation {
+      div {
+        font-size: 3em!important;
+      }
+    }
+  }
+}
 </style>

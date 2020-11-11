@@ -33,17 +33,31 @@
         </div>
       </div>
     </transition>
-    <transition  v-on:enter="AffichageEnter"
-      v-on:leave="AffichageLeave" :duration="{ enter: 1400, leave: 1500 }">
+    <transition
+      v-on:enter="AffichageEnter"
+      v-on:leave="AffichageLeave"
+      :duration="{ enter: 1400, leave: 1500 }"
+    >
       <div v-if="Affichage == true" class="Affichage">
         <div class="Name-Container">
-          <div class="Name">{{ AffichageElement ? AffichageElement.name : Cast[1].name }}</div>
+          <div class="Name">
+            {{ AffichageElement ? AffichageElement.name : Cast[1].name }}
+          </div>
         </div>
         <div class="Image-Container">
-          <img class="Image" :src="AffichageElement ? AffichageElement.image : Cast[1].image" />
+          <img
+            class="Image"
+            :src="AffichageElement ? AffichageElement.image : Cast[1].image"
+          />
         </div>
         <div class="Description-Container">
-          <div class="Description">{{ AffichageElement ? AffichageElement.description : Cast[1].description }}</div>
+          <div class="Description">
+            {{
+              AffichageElement
+                ? AffichageElement.description
+                : Cast[1].description
+            }}
+          </div>
         </div>
       </div>
     </transition>
@@ -60,8 +74,8 @@ export default {
     };
   },
   props: {
-    Cast: {type:Array},
-    show: {type:String},
+    Cast: { type: Array },
+    show: { type: String },
     AffichageElement: {},
   },
   methods: {
@@ -113,30 +127,21 @@ export default {
       );
     },
     AffichageLeave() {
-      gsap.to(
-        ".Cast .Affichage .Name",
-        {
-          x: -500,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-         gsap.to(
-        ".Cast .Affichage .Image",
-        {
-          y: -500,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-         gsap.to(
-        ".Cast .Affichage .Description",
-        {
-          x: 500,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
+      gsap.to(".Cast .Affichage .Name", {
+        x: -500,
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9],
+      });
+      gsap.to(".Cast .Affichage .Image", {
+        y: -500,
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9],
+      });
+      gsap.to(".Cast .Affichage .Description", {
+        x: 500,
+        duration: 1.4,
+        ease: [0.6, 0.01, -0.05, 0.9],
+      });
     },
     AffichageEnter() {
       gsap.fromTo(
@@ -148,7 +153,7 @@ export default {
           ease: [0.6, 0.01, -0.05, 0.9],
         }
       );
-         gsap.fromTo(
+      gsap.fromTo(
         ".Affichage .Image",
         { x: -500 },
         {
@@ -157,7 +162,7 @@ export default {
           ease: [0.6, 0.01, -0.05, 0.9],
         }
       );
-         gsap.fromTo(
+      gsap.fromTo(
         ".Affichage .Description",
         { x: 500 },
         {
@@ -202,7 +207,7 @@ export default {
       }
     }
     .Name-Container {
-            overflow: hidden;
+      overflow: hidden;
       position: absolute;
       left: 20%;
       top: 2%;
@@ -324,6 +329,61 @@ export default {
         margin-bottom: 4px;
         transition: all 1.1s cubic-bezier(0.19, 1, 0.22, 1);
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 906px) {
+  .Cast .List {
+    width: 40%;
+    height: 90%;
+  }
+  .Cast .List .List-element.active {
+    width: 100%;
+  }
+  .Cast .Affichage .Name-Container {
+    overflow: hidden;
+    position: absolute;
+    left: 13%;
+    top: 2%;
+    & .Name {
+      font-size: 3em;
+    }
+  }
+  .Cast .Affichage .Image-Container {
+    overflow: hidden;
+    height: 30%;
+    width: 40%;
+    position: absolute;
+    left: 13%;
+    top: 13%;
+    & img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .Cast .Affichage .Description-Container {
+    width: 80%;
+    font-size: 1.3em;
+    height: 34%;
+    left: 13%;
+    top: 55%;
+    overflow: auto;
+  }
+
+  .Cast .OpenBtn {
+    top: 46%;
+    left: 0;
+    width: 14%;
+    height: 6%;
+    border-right: 1px solid white;
+    .Circle {
+      width: 50%;
+      height: 61%;
+    }
+    .Shift {
+      font-size: 1.5em;
+      margin-left: 3px;
     }
   }
 }

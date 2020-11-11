@@ -52,13 +52,13 @@ export default {
 };
 </script>
 
-<style>
+<style >
 input[type="text"] {
   width: 0px;
   border: none;
   color: #e5e5e5;
   font-size: 13px;
-  background-color: #141414;
+  background-color: transparent;
   background-image: url("../../assets/search.png");
   background-position: 10px 10px;
   background-repeat: no-repeat;
@@ -76,9 +76,17 @@ input[type="text"]:focus {
 }
 #textForm {
   top: 3%;
-  right: 5%;
+    right: 70%;
   z-index: 9999;
   position: fixed;
   width: 200px;
+}
+
+@media only screen and (max-width: 906px) {
+#textForm{
+    top: 11%;
+    left: 5%;
+    right: unset;
+  }
 }
 </style>
