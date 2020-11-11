@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script>
+<script >
 import ShrinkButton from "../ShrinkButton";
 export default {
   name: "SlideContent",
@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .button-container {
   margin-top: 30px;
 }

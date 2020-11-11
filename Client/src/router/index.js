@@ -6,7 +6,7 @@ import Log from '../views/Log.vue'
 import MyList from '../views/MyList.vue'
 import News from '../views/News.vue'
 import SignIn from '../views/SignIn'
-import Details from '../views/Details.vue'
+import Details2 from '../views/Details.vue'
 import Search from '../views/Search.vue'
 import SignUp from '../views/SignUp.vue'
 
@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/Details/:id',
     name: 'Details',
-    component: Details,
+    component: Details2,
     meta: { transitionName: `slideD` }
   },
   {

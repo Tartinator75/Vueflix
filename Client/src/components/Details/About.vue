@@ -1,5 +1,5 @@
 <template>
-  <div  class="About">
+  <div class="About">
     <div class="Description">
       <div>{{ Item.Description }}</div>
     </div>
@@ -19,11 +19,9 @@
 export default {
   name: "About",
   props: {
-    Item: {type:Object},
+    Item: { type: Object },
   },
-  methods: {
-
-  },
+  methods: {},
 };
 </script>
 
@@ -79,6 +77,26 @@ export default {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: goldenrod;
     top: 20%;
+  }
+}
+@media only screen and (max-width: 906px) {
+  .About {
+    .Description {
+      left: 5%;
+      top: 45%;
+      width: 80%;
+      font-size: 1.3em;
+    }
+    .Year {
+      font-size: 8em;
+      top: 25%;
+      left: 5%;
+    }
+    .Rate {
+      font-size: 3em;
+      left: 46%;
+      top: 25%;
+    }
   }
 }
 </style>

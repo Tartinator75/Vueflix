@@ -3,27 +3,9 @@
     <img class="logoHeader Logo" :src="Logo" v-on:click="NavigateSearch" />
     <nav role="navigation">
       <ul>
-        <li id="selections">
-          <a id="navigate">
-            Navigation
-          </a>
-          <ul class="dropdown">
-            <li >
-              <a>News</a>
-            </li>
-            <li v-on:click="NavigateSearch">
-              <a>Search</a>
-            </li>
-            <li v-on:click="NavigateMyList">
-              <a>My List</a>
-            </li>
-          </ul>
-        </li>
-        <li class="items"  v-on:click="NavigateNews">News</li>
+        <li class="items" v-on:click="NavigateNews">News</li>
         <li class="items" v-on:click="NavigateSearch">Search</li>
         <li class="items" v-on:click="NavigateMyList">My List</li>
-          <li class="items" v-on:click="Sign">SignLocalStorage</li>
-        <li></li>
       </ul>
     </nav>
   </div>
@@ -38,19 +20,19 @@ export default {
     };
   },
   props: {
-    Logo: {type:String},
+    Logo: { type: String },
   },
 
   methods: {
     Sign() {
       localStorage.setItem(
         "token",
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNDkzODMyMiwiZXhwIjoxNjA1MDI0NzIyfQ.nKEMxb-yNf7pkwlWhwdGF7ZWKwm8yUBPIylGEWfZiyU"
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluQGFkbWluLmFkbWluIiwiYWRtaW4iOnRydWUsImlhdCI6MTYwNTA5Njk2OCwiZXhwIjoxNjA1MTgzMzY4fQ.JOB5c4CeDKj-R31SI0vjgaOru-WlzKcHjNf4qJYR6hQ"
       );
       localStorage.setItem("id", "5f934004ebb13a1c648cbb10");
       alert("SIGNIN");
     },
-     NavigateNews() {
+    NavigateNews() {
       this.$router.push({ name: "News" });
     },
     NavigateSearch() {
@@ -70,6 +52,7 @@ export default {
   background: #141414;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -84,7 +67,7 @@ export default {
   cursor: pointer;
 }
 nav {
-  width: 70vw;
+  width: 25vw;
   color: white;
   display: flex;
   align-items: center;
@@ -156,79 +139,86 @@ ul li ul li {
   align-items: center;
 }
 @media only screen and (max-width: 906px) {
-  nav {
-    width: 80vw;
+  .logoHeader {
+    width: 22%;
+    margin-left: 5%;
+  }
+  nav{
+        width: 70vw;
   }
 }
-@media only screen and (max-width: 900px) {
-  ul li:hover > ul,
-  ul li:focus-within > ul,
-  ul li ul:hover {
-    visibility: visible;
-    opacity: 1;
-    display: block;
-    font-size: 15px;
-    position: absolute;
-    z-index: 9999;
-  }
-  li :hover {
-    color: #ccc;
-  }
-  #navigate {
-    color: white;
-    opacity: 10;
-    height: auto;
-    margin-left: -10px;
-  }
-  .items {
-    opacity: 0;
-    height: 0;
-    font-size: 0;
-  }
+// @media only screen and (max-width: 900px) {
+//   nav {
+//   width: 80vw;
+// }
+//   ul li:hover > ul,
+//   ul li:focus-within > ul,
+//   ul li ul:hover {
+//     visibility: visible;
+//     opacity: 1;
+//     display: block;
+//     font-size: 15px;
+//     position: absolute;
+//     z-index: 9999;
+//   }
+//   li :hover {
+//     color: #ccc;
+//   }
+//   #navigate {
+//     color: white;
+//     opacity: 10;
+//     height: auto;
+//     margin-left: -10px;
+//   }
+//   .items {
+//     opacity: 0;
+//     height: 0;
+//     font-size: 0;
+//   }
 
-  li a {
-    cursor: pointer;
-  }
-  nav {
-    width: 30%;
-    height: 30px;
-    padding-top: 3px;
-  }
-  #textForm {
-    width: 30%;
-  }
-  #icons {
-    width: 20%;
-  }
-}
-@media only screen and (max-width: 626px) {
-  #selections {
-    padding-top: 30px;
-  }
-}
-@media only screen and (max-width: 541px) {
-  #selections {
-    padding-top: 50px;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .logoHeader {
-    width: 80px;
-  }
-  nav {
-    width: 30%;
-    padding-top: 40px;
-  }
-  #selections {
-    padding-top: 30px;
-  }
-}
-@media only screen and (max-width: 320px) {
-  .logoHeader {
-    margin-left: 0px;
-  }
-  #selections {
-    padding-top: 60px;
-  }
-}
+//   li a {
+//     cursor: pointer;
+//   }
+//   nav {
+//     width: 30%;
+//     height: 30px;
+//     padding-top: 3px;
+//   }
+//   #textForm {
+//     width: 30%;
+//   }
+//   #icons {
+//     width: 20%;
+//   }
+// }
+// @media only screen and (max-width: 626px) {
+//   #selections {
+//     padding-top: 30px;
+//   }
+// }
+// @media only screen and (max-width: 541px) {
+//   #selections {
+//     padding-top: 50px;
+//   }
+// }
+// @media only screen and (max-width: 500px) {
+//   .logoHeader {
+//     width: 80px;
+//   }
+//   nav {
+//     width: 30%;
+//     padding-top: 40px;
+//   }
+//   #selections {
+//     padding-top: 30px;
+//   }
+// }
+// @media only screen and (max-width: 320px) {
+//   .logoHeader {
+//     margin-left: 0px;
+//   }
+//   #selections {
+//     padding-top: 60px;
+//   }
+// }
 </style>

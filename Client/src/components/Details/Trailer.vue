@@ -28,24 +28,27 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 
   .Trailer {
-       overflow: hidden;
     width: 50%;
-    font-family: F001, sans-serif;
-    font-weight: 400;
-    font-size: 1.9em;
-    color: white;
-    text-transform: uppercase;
     position: absolute;
     left: 12%;
     top: 10%;
-    height: 54vh;
     video{
         width: 100%;
         height: 100%;
     }
   }
+@media only screen and (max-width: 906px) {
+  .Trailer{
+      overflow: hidden;
+    width: 85%;
+    position: absolute;
+    left: 7%;
+    top: 45%;
+  }
+}
+
 
 </style>

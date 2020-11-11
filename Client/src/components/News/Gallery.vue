@@ -68,7 +68,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 
 .VueCarousel-inner {
   padding: 0 !important;

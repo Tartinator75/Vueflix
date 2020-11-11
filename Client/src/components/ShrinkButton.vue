@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .button {
   border: 2px solid rgba(255, 255, 255, 0.8);
   cursor: pointer;

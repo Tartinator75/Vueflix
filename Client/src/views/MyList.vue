@@ -75,8 +75,7 @@ export default {
 </script>
 
 <style>
-.Search {
-}
+
 .Search-Container {
   width: 80%;
   margin: auto;

@@ -17,6 +17,8 @@ export default {
 </script>
 
 <style lang="scss">
+
+
 @font-face {
   font-family: "F001";
   src: url("assets/font1.woff2") format("woff2"),
