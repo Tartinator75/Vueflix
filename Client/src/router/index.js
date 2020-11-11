@@ -8,6 +8,7 @@ import News from '../views/News.vue'
 import SignIn from '../views/SignIn'
 import Details from '../views/Details.vue'
 import Search from '../views/Search.vue'
+import SignUp from '../views/SignUp.vue'
 
 Vue.use(VueRouter)
 
@@ -46,6 +47,12 @@ const routes = [
     path: '/Log/SignIn',
     name: 'SignIn',
     component: SignIn,
+    meta: { transitionName: `slide` }
+  },
+  {
+    path: '/Log/SignUp',
+    name: 'SignUp',
+    component: SignUp,
     meta: { transitionName: `slide` }
   },
 ]

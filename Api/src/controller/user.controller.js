@@ -6,7 +6,8 @@ exports.create = (req, res) => {
   const user = new User({
     email: req.body.email,
     password: hashedpassword,
-    firstname: req.body.lastname,
+    firstname: req.body.firstname,
+    lastname: req.body.firstname,
     admin: req.body.admin,
     MyList: req.body.MyList
   });
