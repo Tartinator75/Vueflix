@@ -1,22 +1,14 @@
 <template>
   <div class="MyList Page">
     <Header Logo="/logo-big.png"></Header>
-    <div class="Search-Container" v-if="Load">
-      <SearchGallery
-        :Series="Series"
-        :Categs="Categs"
-        :MyListx="MyList"
-        :AddList="AddList"
-        :RemoveList="RemoveList"
-      >
-      </SearchGallery>
+    <div class="Search-Container">
+      <SearchGallery Type="" />
     </div>
   </div>
 </template>
 
 <script>
 import Card from "@/components/Search/Card";
-import GetGallery from "@/mixins/GetGallery.js";
 import Header from "@/components/Header";
 import SearchGallery from "@/components/Search/SearchGallery";
 export default {
@@ -24,10 +16,8 @@ export default {
   components: {
     SearchGallery,
     Header,
-    Card
+    Card,
   },
- 
-  mixins: [GetGallery],
 };
 </script>
 
@@ -40,7 +30,7 @@ export default {
   background: #141414;
 }
 @media only screen and (max-width: 906px) {
-.Search-Container {
+  .Search-Container {
     width: 90%;
   }
 }

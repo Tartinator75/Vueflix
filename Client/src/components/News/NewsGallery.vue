@@ -23,7 +23,7 @@
         @page-change="BackgroundChange"
       >
         <slide v-for="Serie in Series" :key="Serie.id">
-          <SlideContent :Item="Serie" />
+          <SlideContent :Item="Serie" v-if="Serie.Disponible"/>
         </slide>
       </carousel>
     </div>

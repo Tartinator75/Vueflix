@@ -3,12 +3,7 @@
     <div class="title">
       <span>Series Synopsis</span>
       <div class="controller">
-        <ListController
-          :InList="InList"
-          :AddList="AddList"
-          :RemoveList="RemoveList"
-          :Id="Id"
-        />
+        <ListController :InList="InList" :AddList="AddList" :RemoveList="RemoveList" :Id="Id"/>
       </div>
     </div>
     <div class="text">

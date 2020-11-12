@@ -34,9 +34,6 @@ export default {
       this.$router.push({ name: "MyList" });
     },
   },
-      created(){
-      console.log(this.$router);
-    }
 };
 </script>
 

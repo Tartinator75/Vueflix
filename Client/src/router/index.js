@@ -9,7 +9,6 @@ import SignIn from '../views/SignIn'
 import Details2 from '../views/Details.vue'
 import Search from '../views/Search.vue'
 import SignUp from '../views/SignUp.vue'
-import Upcoming from '../views/Upcoming.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -30,12 +29,6 @@ const routes = [
     name: 'Details',
     component: Details2,
     meta: { transitionName: `slideD` }
-  },
-  {
-    path: '/Upcoming',
-    name: 'Upcoming',
-    component: Upcoming,
-    meta: { transitionName: `slide` }
   },
   {
     path: '/MyList',

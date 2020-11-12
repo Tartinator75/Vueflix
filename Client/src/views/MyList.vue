@@ -1,20 +1,13 @@
 <template>
   <div class="MyList Page">
     <Header Logo="/logo-big.png"></Header>
-    <div class="Search-Container" v-if="Load">
-      <SearchGallery
-        :Series="Series"
-        :Categs="Categs"
-        :MyListx="MyList"
-        :AddList="AddList"
-        :RemoveList="RemoveList"
-      />
+    <div class="Search-Container">
+      <SearchGallery type="MyList"/>
     </div>
   </div>
 </template>
 
 <script>
-import GetMyList from "@/mixins/GetMyList.js";
 import UserApi from "@/mixins/UserApi.js";
 import Header from "@/components/Header";
 import SearchGallery from "@/components/Search/SearchGallery";
@@ -24,8 +17,6 @@ export default {
     SearchGallery,
     Header,
   },
-
-  mixins: [GetMyList],
 };
 </script>
 

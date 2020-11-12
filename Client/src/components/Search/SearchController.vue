@@ -1,13 +1,7 @@
 <template>
   <div id="textForm">
     <form>
-      <input
-        v-model="Textx"
-        v-on:input="Searching()"
-        type="text"
-        name="text"
-        :placeholder="placeholder"
-      />
+      <input v-model="Textx" v-on:input="Searching()" type="text" name="text" :placeholder="placeholder"/>
     </form>
   </div>
 </template>

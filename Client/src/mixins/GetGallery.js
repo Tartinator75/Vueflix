@@ -20,21 +20,37 @@ export default {
       this.MyList = this.MyList.filter((e) => e !== id);
       this.EditUser(localStorage.getItem("id"), { MyList: this.MyList });
     },
-    CheckList(id) { // FUNCTION QUI CHECK SI LA SERIE EST DANS LA LISTE OU PAS
+    RemoveSerieMyList(id) {
+      this.RemoveList(id);
+      this.Series = this.Series.filter((e) => e._id !== id);
+    },
+    CheckList(id) {
+      // FUNCTION QUI CHECK SI LA SERIE EST DANS LA LISTE OU PAS
       if (this.MyList.toString().indexOf(id) > -1 && this.MyList.length > 0) {
         return false;
       } else {
         return true;
       }
     },
-    Init() {
+    // FUNCTION QUI TRIE LES SERIES PAR RAPPORT A çA CATéGORIE
+    GetSerieCateg(categ) {
+      var result = [];
+      this.Series.forEach((Serie) => {
+        if (Serie.Categorie.indexOf(categ) > -1) {
+          result.push(Serie);
+        }
+      });
+      return result;
+    },
+    SetMyList() {
       // FUNCTION POUR récupérer la liste de l'utilisateurs
       this.GetUsersDetail(localStorage.getItem("id"))
         .then((data) => {
           this.MyList = data.MyList;
         })
         .catch((err) => console.log(err));
-      // FUNCTION POUR récupérer la liste des series et des catgégories présent
+    },
+    SetSeries() {
       this.GetSeries()
         .then((data) => {
           this.Series = data;
@@ -49,9 +65,31 @@ export default {
         })
         .catch((err) => console.log(err));
     },
-  },
-  mounted() {
-    this.Init();
+    SetSeriesMyList() {
+      this.GetSeries()
+        .then((data) => {
+          data.forEach((Serie) => {
+            if (this.MyList.includes(Serie._id)) {
+              this.Series.push(Serie);
+              Serie.Categorie.forEach((Categorie) => {
+                if (!this.Categs.includes(Categorie)) {
+                  this.Categs.push(Categorie);
+                }
+              });
+            }
+          });
+          this.Load = true;
+        })
+        .catch((err) => console.log(err));
+    },
+    Init(Mode) {
+      this.SetMyList();
+      if (Mode == "MyList") {
+        this.SetSeriesMyList();
+      } else {
+        this.SetSeries();
+      }
+    },
   },
   mixins: [SerieApi, UserApi],
 };
