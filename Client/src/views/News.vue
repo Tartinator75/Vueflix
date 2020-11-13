@@ -39,7 +39,7 @@ export default {
           }
         });
         this.Series = stock.slice(Math.max(stock.length - 3, 0));
-        this.Logo = data[0].Logo;
+        this.Logo = this.Series[0].Logo;
       })
       .catch((err) => console.log(err));
   },

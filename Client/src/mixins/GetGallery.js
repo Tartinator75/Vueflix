@@ -33,11 +33,17 @@ export default {
       }
     },
     // FUNCTION QUI TRIE LES SERIES PAR RAPPORT A çA CATéGORIE
-    GetSerieCateg(categ) {
+    GetSerieCateg(categ,Mode) {
       var result = [];
       this.Series.forEach((Serie) => {
         if (Serie.Categorie.indexOf(categ) > -1) {
-          result.push(Serie);
+            if(Mode==''){
+              if(Serie.Disponible)
+                result.push(Serie);
+            }
+            else{
+              result.push(Serie);
+            }
         }
       });
       return result;

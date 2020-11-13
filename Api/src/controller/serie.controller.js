@@ -61,7 +61,7 @@ exports.findById = (req, res) => {
 };
 
 
-exports.findByIdAndUpdate = (req, res) => {
+exports.findByIdAndUpdate = (req, res) => {// deprecated
   Serie.findOneAndUpdate(req.params.id, req.body)
     .then(Serie => {
       res.send(Serie);

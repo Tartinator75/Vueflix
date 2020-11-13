@@ -3,10 +3,10 @@
     <SearchController placeholder="Titre Acteur Année..." />
     <div class="Element-Container">
       <div class="Categs" v-for="(Categ,index) in Categs" :key="index + Categ">
-        <h1 v-if="GetSerieCateg(Categ).length > 0">{{ Categ }}</h1>
+        <h1 v-if="GetSerieCateg(Categ,Type).length > 0">{{ Categ }}</h1>
         <carousel :perPageCustom="[[300, 1], [800, 2],[1000, 3]]" :mouse-drag="true" :spacePadding="20" :paginationEnabled="false">
-          <slide v-for="(Serie,index) in GetSerieCateg(Categ)" :key="index + Serie.Title">
-            <Card :Item="Serie" :InList="CheckList(Serie._id)" :AddList="AddList" :RemoveList="Type=='' ? RemoveList : RemoveSerieMyList" v-if="Type=='' ? Serie.Disponible : true"/> 
+          <slide  v-for="(Serie,index) in GetSerieCateg(Categ,Type)" :key="index + Serie.Title" >
+            <Card :Item="Serie" :InList="CheckList(Serie._id)" :AddList="AddList" :RemoveList="Type=='' ? RemoveList : RemoveSerieMyList"/> 
           </slide> 
         </carousel> 
       </div>
