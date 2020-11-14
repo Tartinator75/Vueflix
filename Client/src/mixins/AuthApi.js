@@ -3,10 +3,10 @@ const url = apiConfigs.urlApi;
 const headers = {
   "Content-Type": "application/json",
 };
+// APPELLE D'API STANDARD DE LOGIN PAR FETCH RETOURNE UN JSON
 export default {
   methods: {
     Login(user, password) {
-      console.log(url);
       return fetch(url + "/auth/login", {
         method: "POST",
         headers,

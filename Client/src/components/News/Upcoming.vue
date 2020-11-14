@@ -3,13 +3,7 @@
     <div class="Search-Container" v-if="Load">
       <h1>Bientôt sur VueFlix</h1>
       <div v-for="Serie in Series" :key="Serie.Title">
-        <ComingCard
-          :Item="Serie"
-          :InList="CheckList(Serie._id)"
-          :AddList="AddList"
-          :RemoveList="RemoveList"
-          v-if="!Serie.Disponible"
-        />
+        <ComingCard :Item="Serie" :InList="CheckList(Serie._id)" :AddList="AddList" :RemoveList="RemoveList" v-if="!Serie.Disponible"/><!-- Carte des series a venir  -->
       </div>
     </div>
   </div>

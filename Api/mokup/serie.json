@@ -205,5 +205,42 @@
       ],
       "Director":"Lauren Schmidt Hissrich",
       "Disponible":false
+  },
+  {
+    "Title": "The Boys",
+    "Year": 2019,
+    "Age": 18,
+    "Saison": 2,
+    "Trailer": "witcher.mp4",
+    "Cover": "https://fr.web.img5.acsta.net/r_640_360/newsv7/20/06/26/18/43/3280120.jpg",
+    "Content": [
+      [
+      "https://media.melty.fr/article-4236122-so/media.jpg",
+        "https://images.wallpapersden.com/image/wxl-amazon-prime-the-boys_72905.jpg"
+      ]
+    ],
+    "Categorie": ["Action", "Sci-FI"],
+    "Description": "Lorsque les super-héros abusent de leurs super-pouvoirs au lieu de les utiliser pour faire le bien, les Boys se lancent dans une quête héroïque pour révéler la vérité sur The Seven et Vought, le conglomérat qui couvre leurs sales secrets",
+    "Rate": 3.5,
+    "logo": "https://i.shgcdn.com/c113595f-aaad-4a24-a5cc-05493779b932/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
+    "Cast": [
+        {
+          "name": "KARL URBAN",
+          "image": "https://fr.web.img6.acsta.net/c_215_290/pictures/16/08/16/17/27/426181.jpg",
+          "description":"Originaire de Nouvelle-Zélande, Karl Urban débute sa carrière d'acteur après le lycée, en 1992, avec des rôles récurrents dans les séries de son pays que sont Shortland Street et Homeward Bound"
+        },
+        {
+          "name": "JACK QUAID",
+          "image": "https://fr.web.img2.acsta.net/c_215_290/pictures/16/02/10/10/42/179650.jpg",
+          "description":"A 24 ans, la jeune actrice britannique décroche son premier vrai rôle à la télévision dans The Witcher. On a pu la voir auparavant dans la série Wanderlust aux côtés de Toni Collette et dans ABC contre Poirot (avec John Malkovich). Dans la série Netflix adaptée des romans éponymes d’Andrzej Sapkowski, Anya Chalotra prête ses traits à Yennefer, l’un des trois personnages principaux."
+        },
+        {
+          "name": "ERIN MORIARTY",
+          "image": "https://fr.web.img2.acsta.net/c_215_290/pictures/16/05/23/10/11/251227.jpg",
+          "description":"A 24 ans, la jeune actrice britannique décroche son premier vrai rôle à la télévision dans The Witcher. On a pu la voir auparavant dans la série Wanderlust aux côtés de Toni Collette et dans ABC contre Poirot (avec John Malkovich). Dans la série Netflix adaptée des romans éponymes d’Andrzej Sapkowski, Anya Chalotra prête ses traits à Yennefer, l’un des trois personnages principaux."
+        }
+      ],
+      "Director":"Eric Kripke",
+      "Disponible":true
   }
 ]

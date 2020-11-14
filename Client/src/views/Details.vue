@@ -1,38 +1,18 @@
 <template>
   <div class="Details Page">
     <Header :Logo="Item.Logo" />
-    <div
-      class="Background"
-      :style="`background:center / cover no-repeat url(${Item.Content[0][0]});`"
-    ></div>
+    <div class="Background" :style="`background:center / cover no-repeat url(${Item.Content[0][0]});`"></div>
     <div class="Content">
-      <div class="Navigation">
-        <div class="active" v-on:click="navigation" data-nav="About">About</div>
-        <div data-nav="Trailer" v-on:click="navigation">Trailer</div>
-        <div data-nav="Cast" v-on:click="navigation">Cast</div>
-        <div data-nav="Watch" v-on:click="navigation">Watch</div>
-      </div>
-      <transition
-        v-on:enter="CastEnter"
-        v-on:leave="CastLeave"
-        :duration="{ enter: 1400, leave: 1500 }"
-      >
-        <Cast v-if="show == 'Cast'" :show="show" :Cast="Item.Cast" />
-      </transition>
-      <transition
-        v-on:enter="TrailerEnter"
-        v-on:leave="TrailerLeave"
-        :duration="{ enter: 1400, leave: 1500 }"
-      >
-        <Trailer v-if="show == 'Trailer'" :show="show" :video="Item.Trailer" />
-      </transition>
-      <transition
-        v-on:enter="AboutEnter"
-        v-on:leave="AboutLeave"
-        :duration="{ enter: 1400, leave: 1500 }"
-      >
-        <About v-if="show == 'About'" :Item="Item" />
-      </transition>
+      <DetailsNavigation :navigation="navigation"/><!-- Composant d'affichage de la navigation entre les sections cast trailer about' -->
+      <TransiRC :AnimEnter="CastEnter" :AnimLeave="CastLeave" :Affichage="show" :AffichageType="'Cast'"><!-- Composant de transition en fonction de la valeurs d'affichage -->
+        <Cast :Cast="Item.Cast" /><!-- Composant d'affichage du cast' -->
+      </TransiRC>
+       <TransiRC :AnimEnter="TrailerEnter" :AnimLeave="TrailerLeave" :Affichage="show" :AffichageType="'Trailer'">
+        <Trailer :video="Item.Trailer" /><!-- Composant d'affichage du trailer' -->
+      </TransiRC>
+      <TransiRC :AnimEnter="AboutEnter" :AnimLeave="AboutLeave" :Affichage="show" :AffichageType="'About'">
+        <About :Item="Item" /><!-- Composant d'affichage de la description de la serie' -->
+      </TransiRC>
     </div>
   </div>
 </template>
@@ -41,10 +21,11 @@
 import SerieApi from "@/mixins/SerieApi.js";
 import DetailsAnimation from "@/mixins/DetailsAnimation.js";
 import Cast from "@/components/Details/Cast";
+import DetailsNavigation from "@/components/Details/DetailsNavigation";
 import Trailer from "@/components/Details/Trailer";
 import About from "@/components/Details/About";
 import Header from "@/components/Header";
-
+import TransiRC from "@/components/TransiRC";
 export default {
   name: "Details",
   data() {
@@ -58,6 +39,8 @@ export default {
     About,
     Trailer,
     Header,
+    TransiRC,
+    DetailsNavigation
   },
   created() {
     this.GetSeriesDetail(this.$route.params.id)

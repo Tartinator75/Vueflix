@@ -1,8 +1,8 @@
 <template>
   <div class="Home Page">
-    <Header :Logo="Logo"></Header>
-    <NewsGallery :Series="Series"></NewsGallery>
-    <Upcoming />
+    <Header :Logo="Logo"></Header> <!--nav bar  -->
+    <NewsGallery :Series="Series"></NewsGallery><!-- Slider Principale des nouvelles series -->
+    <Upcoming /><!-- gallery de card de series qui vont bientot arriver sur la plateforme -->
   </div>
 </template>
 
@@ -30,6 +30,7 @@ export default {
   },
   methods: {},
   created() {
+    // fonction qui permet de récuperer les dernieres series ajoutés
     this.GetSeries()
       .then((data) => {
         var stock = [];

@@ -24,6 +24,7 @@ export default {
   },
 
   methods: {
+    // methodes de navigation nous pouvions aussi utiliser la balise <router-link to=""> 
     NavigateNews() {
       this.$router.push({ name: "News" });
     },

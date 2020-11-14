@@ -1,72 +1,27 @@
 <template>
   <div class="Carousel-container">
-    <video id="myVideo" autoplay loop muted frameborder="0" allowfullscreen>
-      <source
-        id="source"
-        :src="publicPath + Series[0].Trailer"
-        type="video/mp4"
-      />
+    <video id="myVideo" autoplay loop muted frameborder="0" allowfullscreen><!-- Video de background du slider  -->
+      <source id="source" :src="publicPath + Series[0].Trailer" type="video/mp4"/>
     </video>
-    <!-- <iframe
-      id="myVideo"
-      type="text/html"
-      data-video="https://www.youtube.com/embed/ZAXA1DV4dtI?autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=1&mute=1"
-      src="https://www.youtube.com/embed/giYeaKsXnsI?autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=1&modestbranding=1&controls=0&showinfo=1&mute=1"
-    ></iframe> -->
-    <div id="Carousel">
-      <carousel
-        :mouse-drag="true"
-        :centerMode="false"
-        :paginationEnabled="false"
-        :perPage="1"
-       
-        @page-change="BackgroundChange"
-      >
-        <slide v-for="Serie in Series" :key="Serie.id">
-          <SlideContent :Item="Serie" v-if="Serie.Disponible"/>
-        </slide>
-      </carousel>
-    </div>
+    <NewsCarousel :Series="Series" /><!-- Carousel avec Nom de la serie et boutton vers ses details -->
   </div>
 </template>
 
 <script>
 import apiConfigs from "../../configs/api.config";
-import SlideContent from "./SlideContent";
+import NewsCarousel from "./NewsGalleryComponents/NewsCarousel";
 export default {
   name: "NewsGallery",
   data() {
     return {
-      publicPath: "http://localhost:8080/",
+      publicPath: process.env.VUE_APP_HOST_URL,
     };
   },
   props: {
     Series: { type: Array },
   },
   components: {
-    SlideContent,
-  },
-  methods: {
-    BackgroundChange(e) {
-      let el = document.querySelectorAll(".Carousel-Item");
-      let Video = el[e].dataset.video;
-      let NewLogo = el[e].dataset.logo;
-
-      let Logo = document.querySelector(".Logo");
-      var lecteur = document.getElementById("myVideo");
-
-      lecteur.classList.add("fading");
-      Logo.classList.add("fading");
-      setTimeout(function() {
-        var sources = lecteur.getElementsByTagName("source");
-        sources[0].src = Video;
-        Logo.src = NewLogo;
-
-        lecteur.load();
-        lecteur.classList.remove("fading");
-        Logo.classList.remove("fading");
-      }, 1500);
-    },
+    NewsCarousel,
   },
 };
 </script>
@@ -154,20 +109,20 @@ export default {
   .Carousel-container {
     .Carousel-Item {
       &:before {
-        width: 3vh!important;
+        width: 3vh !important;
       }
       &::after {
-        width: 3vh!important;
+        width: 3vh !important;
       }
       .Text-Container {
-            margin-right: unset!important;
+        margin-right: unset !important;
         &:before {
-          width: 40vh!important;
-          height: 40vh!important;
+          width: 40vh !important;
+          height: 40vh !important;
         }
         h1 {
           font-weight: 100;
-          font-size: 3em!important;
+          font-size: 3em !important;
         }
         span {
           font-size: 1.5em;

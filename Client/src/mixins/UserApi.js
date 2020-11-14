@@ -3,6 +3,8 @@ const url = apiConfigs.urlApi;
 const headers = {
   "Content-Type": "application/json",
 };
+
+// APPELLE D'API STANDARD DES UTILISATEURS PAR FETCH RETOURNE UN JSON
 export default {
   methods: {
     Create(body) {

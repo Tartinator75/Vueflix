@@ -1,47 +1,23 @@
 <template>
   <div class="movie-card">
-    <div class="movie-header"  :style="
-      `background:center / cover no-repeat url(${Item.Cover});backdrop-filter: brightness(0.6);`
-    ">
-    <ListController :InList="InList" :AddList="AddList" :RemoveList="RemoveList" :Id="Item._id"/>
+    <div class="movie-header"  :style="`background:center / cover no-repeat url(${Item.Cover});backdrop-filter: brightness(0.6);`">
+    <ListController :InList="InList" :AddList="AddList" :RemoveList="RemoveList" :Id="Item._id"/><!-- button permettant l'ajout ou la suppression de series dans la liste de l'utilisateur -->
     </div>
-    <!--movie-header-->
     <div class="movie-content">
-      <div class="movie-content-header">
-        <a href="#">
-          <h3 class="movie-title">{{Item.Title}}</h3>
-        </a>
-        <div class="vueflix-logo"></div>
-      </div>
-      <div class="movie-info">
-        <div class="info-section">
-          <label>Year</label>
-          <span>{{Item.Year}}</span>
-        </div>
-        <!--date,time-->
-        <div class="info-section">
-          <label>Rate</label>
-          <span>{{Item.Rate}}</span>
-        </div>
-        <!--screen-->
-        <div class="info-section">
-          <label>Saison</label>
-          <span>{{Item.Saison}}</span>
-        </div>
-        <!--row-->
-        <div class="info-section">
-          <label>Director:</label>
-          <span>{{Item.Director}}</span>
-        </div>
-        <!--seat-->
+      <MovieContent :Title="Item.Title"/>
+      <div class="movie-info"><!-- Composant D'affichage de titre et de logo  -->
+        <InfoSection Title="Year" :Value="Item.Year"/><!-- Composant D'affichage de titre et de valeurs -->
+        <InfoSection Title="Rate" :Value="Item.Rate"/>
+        <InfoSection Title="Saison" :Value="Item.Saison"/>
+        <InfoSection Title="Director" :Value="Item.Director"/>
       </div>
     </div>
-    <!--movie-content-->
   </div>
-  <!--movie-card-->
 </template>
 
 <script>
+import MovieContent from "@/components/News/ComingCardComponents/MovieContent";
+import InfoSection from "@/components/News/ComingCardComponents/InfoSection";
 import ListController from "@/components/ListController";
 export default {
   name: "ComingCard",
@@ -57,6 +33,8 @@ export default {
   },
     components: {
     ListController,
+    MovieContent,
+    InfoSection
   },
 };
 </script>
@@ -129,11 +107,6 @@ export default {
   margin: 0;
 }
 
-.movie-content-header,
-.movie-info {
-  display: table;
-  width: 100%;
-}
 
 .movie-title {
   font-size: 3em;
@@ -156,31 +129,6 @@ export default {
   margin-top: 1em;
 }
 
-.info-section {
-  display: table-cell;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.info-section:first-of-type {
-  text-align: left;
-}
-
-.info-section:last-of-type {
-  text-align: right;
-}
-
-.info-section label {
-  display: block;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 0.5em;
-  font-size: 1.2em;
-}
-
-.info-section span {
-  font-weight: 100;
-  font-size: 1.3em;
-}
 
 @media screen and (max-width: 500px) {
   .movie-card {

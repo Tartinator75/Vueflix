@@ -1,5 +1,5 @@
 <template>
-        <div class="header-icon-container">
+        <div class="header-icon-container"><!-- button permettant l'ajout ou la suppression de series dans la liste de l'utilisateur -->
           <i  v-if="InList" v-on:click="AddList(Id)" class="material-icons header-icon add"  >+</i>
            <i v-else v-on:click="RemoveList(Id)" class="material-icons header-icon remove"  >-</i>
       </div>

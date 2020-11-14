@@ -1,4 +1,7 @@
 import gsap from "gsap";
+
+
+// ANIMATION GSAP POUR LA PAGE DETAILS EN UTILISANT TRANSITION DE VUEJS
 export default {
   methods: {
     NavEnter() {
@@ -46,7 +49,6 @@ export default {
             x: 0,
             duration: 1.4,
             ease: [0.6, 0.01, -0.05, 0.9],
-            onComplete: function() {},
           }
         );
       },
@@ -55,13 +57,11 @@ export default {
           x: -500,
           duration: 1.4,
           ease: [0.6, 0.01, -0.05, 0.9],
-          onComplete: function() {},
         });
         gsap.to(".Cast .OpenBtn", {
           x: -500,
           duration: 1.4,
           ease: [0.6, 0.01, -0.05, 0.9],
-          onComplete: function() {},
         });
         gsap.to(".Cast .Affichage .Name", {
           x: -500,

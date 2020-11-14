@@ -1,12 +1,12 @@
 <template>
   <div class="SearchGallery">
-    <SearchController placeholder="Titre Acteur Année..." />
+    <SearchController placeholder="Titre Acteur Année..." :Searching="SetQuery" /><!-- permet la recherche d'élément en fonction de la liste de -->
     <div class="Element-Container">
-      <div class="Categs" v-for="(Categ,index) in Categs" :key="index + Categ">
-        <h1 v-if="GetSerieCateg(Categ,Type).length > 0">{{ Categ }}</h1>
+      <div class="Categs" v-for="(Categ,index) in Categs" :key="index + Categ"><!-- pour chaque catégories -->
+        <h1 v-if="GetSerieCateg(Categ,Type,ResultQuery).length > 0">{{ Categ }}</h1><!-- si il y a 1 serie ayant cette catégories j'affiche le nom de la catégorie sinon je n'affiche pas le nom de la catégorie -->
         <carousel :perPageCustom="[[300, 1], [800, 2],[1000, 3]]" :mouse-drag="true" :spacePadding="20" :paginationEnabled="false">
-          <slide  v-for="(Serie,index) in GetSerieCateg(Categ,Type)" :key="index + Serie.Title" >
-            <Card :Item="Serie" :InList="CheckList(Serie._id)" :AddList="AddList" :RemoveList="Type=='' ? RemoveList : RemoveSerieMyList"/> 
+          <slide  v-for="(Serie,index) in GetSerieCateg(Categ,Type,ResultQuery)" :key="index + Serie.Title" ><!-- pour chaque serie dans cette catégorie je creer une carte d'infos -->
+            <Card :Item="Serie" :InList="CheckList(Serie._id)" :AddList="AddList" :RemoveList="Type=='' ? RemoveList : RemoveSerieMyList"/> <!-- card permettant l'ajout d'une serie a la liste de l'utilisateurs et en fonction du Mode de supprimmer son affichage si on l'a supprimer de la liste de l'utilisateurs -->
           </slide> 
         </carousel> 
       </div>
@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script>// Ce composant permet de gerer la page de recherche et la page de MyListe de l'utilisateurs
 import { Carousel, Slide } from "vue-carousel";
 import Card from "@/components/Search/Card";
 import GetGallery from "@/mixins/GetGallery.js";

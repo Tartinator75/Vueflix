@@ -24,7 +24,6 @@ export default {
       publicPath: "http://localhost:8080/",
     };
   },
-  methods: {},
 };
 </script>
 
