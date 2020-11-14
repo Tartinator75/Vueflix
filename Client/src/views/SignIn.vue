@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import SigninForm from "../components/SignInForm.vue";
+import SigninForm from "../components/Log/SignInForm.vue";
 
 export default {
   components: {

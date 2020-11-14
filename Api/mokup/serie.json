@@ -171,5 +171,76 @@
         }
       ],
       "Director":"Jon Favreau"
+  },
+  {
+    "Title": "The Witcher",
+    "Year": 2019,
+    "Age": 18,
+    "Saison": 2,
+    "Trailer": "witcher.mp4",
+    "Cover": "https://resize-parismatch.lanmedia.fr/img/var/news/storage/images/paris-match/culture/medias/the-witcher-4-raisons-de-regarder-la-serie-netflix-1665908/27166270-1-fre-FR/The-Witcher-4-raisons-de-regarder-la-serie-Netflix.jpg",
+    "Content": [
+      [
+        "https://cdn-media.rtl.fr/cache/OksxS21ctDLuq1tzwteSZQ/880v587-0/online/image/2019/1122/7799532571_l-affiche-officielle-de-la-serie-the-witcher.jpg",
+        "https://images.laprovence.com/media/2019/07/01/1561999436_capturezfezfzeefzezez.jpg?twic=v1/dpr=2/focus=351.5x202.5/cover=740x416",
+        "https://media.begeek.fr/2020/06/The-Witcher-Netflix-saison-2.jpg",
+        "https://static.cnews.fr/sites/default/files/styles/image_640_360/public/capture_decran_2020-06-16_a_12.05.30_5ee899da111f6_0.png?itok=cMufOp4Y"
+      ]
+    ],
+    "Categorie": ["Action", "Sci-FI"],
+    "Description": "Hexer Geralt reprend la mission inachevée d'un autre sorceleur dans un royaume traqué par une bête féroce. Yennefer se forge un avenir magique au prix d'un terrible sacrifice",
+    "Rate": 5,
+    "logo": "https://i.shgcdn.com/c113595f-aaad-4a24-a5cc-05493779b932/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
+    "Cast": [
+        {
+          "name": "HENRY CAVILL",
+          "image": "https://fr.web.img3.acsta.net/c_215_290/pictures/19/12/19/11/34/5830820.jpg",
+          "description":"Henry Cavill grandit à Jersey, avec ses quatre frères, où il reçoit une éducation traditionnelle avant de découvrir le théâtre à la Stowe School de Buckingham ; il alterne dès lors entre pièces classiques ("Le Songe d'une nuit d'été") et comédies musicales ("Grease"), et s'essaie même à la mise en scène. Sa carrière professionnelle commence réellement en 2001 avec Laguna, drame canadien dans lequel il incarne un jeune orphelin recueilli par un ancien mafieux"
+        },
+        {
+          "name": "ANYA CHALOTRA",
+          "image": "https://fr.web.img5.acsta.net/c_215_290/pictures/19/12/06/15/30/1905764.jpg",
+          "description":"A 24 ans, la jeune actrice britannique décroche son premier vrai rôle à la télévision dans The Witcher. On a pu la voir auparavant dans la série Wanderlust aux côtés de Toni Collette et dans ABC contre Poirot (avec John Malkovich). Dans la série Netflix adaptée des romans éponymes d’Andrzej Sapkowski, Anya Chalotra prête ses traits à Yennefer, l’un des trois personnages principaux."
+        }
+      ],
+      "Director":"Lauren Schmidt Hissrich",
+      "Disponible":false
+  },
+  {
+    "Title": "The Boys",
+    "Year": 2019,
+    "Age": 18,
+    "Saison": 2,
+    "Trailer": "witcher.mp4",
+    "Cover": "https://fr.web.img5.acsta.net/r_640_360/newsv7/20/06/26/18/43/3280120.jpg",
+    "Content": [
+      [
+      "https://media.melty.fr/article-4236122-so/media.jpg",
+        "https://images.wallpapersden.com/image/wxl-amazon-prime-the-boys_72905.jpg"
+      ]
+    ],
+    "Categorie": ["Action", "Sci-FI"],
+    "Description": "Lorsque les super-héros abusent de leurs super-pouvoirs au lieu de les utiliser pour faire le bien, les Boys se lancent dans une quête héroïque pour révéler la vérité sur The Seven et Vought, le conglomérat qui couvre leurs sales secrets",
+    "Rate": 3.5,
+    "logo": "https://i.shgcdn.com/c113595f-aaad-4a24-a5cc-05493779b932/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
+    "Cast": [
+        {
+          "name": "KARL URBAN",
+          "image": "https://fr.web.img6.acsta.net/c_215_290/pictures/16/08/16/17/27/426181.jpg",
+          "description":"Originaire de Nouvelle-Zélande, Karl Urban débute sa carrière d'acteur après le lycée, en 1992, avec des rôles récurrents dans les séries de son pays que sont Shortland Street et Homeward Bound"
+        },
+        {
+          "name": "JACK QUAID",
+          "image": "https://fr.web.img2.acsta.net/c_215_290/pictures/16/02/10/10/42/179650.jpg",
+          "description":"A 24 ans, la jeune actrice britannique décroche son premier vrai rôle à la télévision dans The Witcher. On a pu la voir auparavant dans la série Wanderlust aux côtés de Toni Collette et dans ABC contre Poirot (avec John Malkovich). Dans la série Netflix adaptée des romans éponymes d’Andrzej Sapkowski, Anya Chalotra prête ses traits à Yennefer, l’un des trois personnages principaux."
+        },
+        {
+          "name": "ERIN MORIARTY",
+          "image": "https://fr.web.img2.acsta.net/c_215_290/pictures/16/05/23/10/11/251227.jpg",
+          "description":"A 24 ans, la jeune actrice britannique décroche son premier vrai rôle à la télévision dans The Witcher. On a pu la voir auparavant dans la série Wanderlust aux côtés de Toni Collette et dans ABC contre Poirot (avec John Malkovich). Dans la série Netflix adaptée des romans éponymes d’Andrzej Sapkowski, Anya Chalotra prête ses traits à Yennefer, l’un des trois personnages principaux."
+        }
+      ],
+      "Director":"Eric Kripke",
+      "Disponible":true
   }
 ]

@@ -1,13 +1,7 @@
 <template>
   <div id="textForm">
     <form>
-      <input
-        v-model="Textx"
-        v-on:input="Searching()"
-        type="text"
-        name="text"
-        :placeholder="placeholder"
-      />
+      <input v-model="Text" v-on:input="Searching(Text)" type="text" name="text" :placeholder="placeholder"/>
     </form>
   </div>
 </template>
@@ -17,38 +11,44 @@ export default {
   name: "SearchController",
   data: function() {
     return {
-      Textx: "",
+      Text: "",
     };
   },
-  methods: {
-    Searching() {
-      console.log("searching process...");
-      var Slide, i, txtValue;
-      Slide = document.querySelectorAll(".VueCarousel-slide");
-      if (this.Textx != "") {
-        Slide.forEach((element) => {
-          txtValue =
-            element.textContent.toLowerCase() ||
-            element.innerText.toLowerCase();
-          if (txtValue.indexOf(this.Textx.toLowerCase()) > -1) {
-            element.style.display = "block";
-          } else {
-            element.style.display = "none";
-          }
-        });
-      } else {
-        Slide.forEach((element) => {
-          element.style.display = "block";
-        });
-      }
-    },
-  },
-  props: {
+   props: {
     placeholder: {type:String},
-    callback: {
+    Searching: {
       type: Function,
     },
   },
+
+// j'ai utiliser la méthodes computed pour me familiariser avec certains concept de vuejs a voir dans la mixins GetGallery 
+// sinon comme vous pouvez le voir une autre methodes plus simples permet de filtrer visuellement pour l'utilisateurs des éléments 
+
+  // methods: {
+    // methodes de recherche de javascript basic en utilisant le DOM 
+    // Searching() {// fonction permettant la recherche d'élément en fonction de des valeurs de la card
+    //   console.log("searching process...");
+    //   var Slide, i, txtValue;
+    //   Slide = document.querySelectorAll(".VueCarousel-slide");
+    //   if (this.Textx != "") {
+    //     Slide.forEach((element) => {
+    //       txtValue =
+    //         element.textContent.toLowerCase() ||
+    //         element.innerText.toLowerCase();
+    //       if (txtValue.indexOf(this.Textx.toLowerCase()) > -1) {
+    //         element.style.display = "block";
+    //       } else {
+    //         element.style.display = "none";
+    //       }
+    //     });
+    //   } else {
+    //     Slide.forEach((element) => {
+    //       element.style.display = "block";
+    //     });
+    //   }
+    // },
+  // },
+ 
 };
 </script>
 

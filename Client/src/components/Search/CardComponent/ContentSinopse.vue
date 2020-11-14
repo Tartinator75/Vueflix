@@ -2,12 +2,8 @@
   <div class="content-sinopse">
     <div class="title">
       <span>Series Synopsis</span>
-      <div class="ARLIST">
-        <span v-if="InList" class="add" v-on:click="AddList(Id)"
-          >+ Add to List</span
-        ><span v-else class="remove" v-on:click="RemoveList(Id)"
-          >- Remove to List</span
-        >
+      <div class="controller">
+        <ListController :InList="InList" :AddList="AddList" :RemoveList="RemoveList" :Id="Id"/><!-- button permettant l'ajout ou la suppression de series dans la liste de l'utilisateur -->
       </div>
     </div>
     <div class="text">
@@ -17,6 +13,7 @@
 </template>
 
 <script>
+import ListController from "@/components/ListController";
 export default {
   name: "ContentSinopse",
   props: {
@@ -29,6 +26,9 @@ export default {
     RemoveList: {
       type: Function,
     },
+  },
+  components: {
+    ListController,
   },
 };
 </script>
@@ -52,13 +52,14 @@ export default {
   width: 100%;
   left: 0;
   transition: 0.6s;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+
   & div {
     cursor: pointer;
     pointer-events: all;
-    font-size: 0.4em;
+    font-size: 0.6em;
+    top: -10%;
+    position: absolute;
+    right: 16%;
     z-index: 99999;
     & .add {
       color: green;
@@ -79,12 +80,14 @@ export default {
   letter-spacing: 1px;
 }
 @media only screen and (max-width: 906px) {
-.card .sinopse .content-sinopse .title{
-  width: 85%!important;
-  font-size: 2em!important;
-  & div{
-    font-size: 0.5em!important;
+  .card .sinopse .content-sinopse .title {
+    width: 85% !important;
+    font-size: 2em !important;
+    & div {
+      top: 20%;
+      position: absolute;
+      right: 10%;
+    }
   }
-}
 }
 </style>

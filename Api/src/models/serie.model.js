@@ -37,6 +37,9 @@ const serieSchema = new Schema(
     Logo: {
       type: String, //  logo
     },
+    Disponible: {
+      type: Boolean, 
+    },
     Cast: [{}],
     Director: { type: String },
   },

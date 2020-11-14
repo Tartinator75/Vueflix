@@ -1,71 +1,30 @@
 <template>
   <div class="Cast">
-    <transition
-      v-on:enter="BtnEnter"
-      v-on:leave="BtnLeave"
-      :duration="{ enter: 1400, leave: 1500 }"
-    >
-      <div v-if="Affichage == true" class="OpenBtn">
-        <div class="Circle" v-on:click="Affichage = !Affichage">
+    <TransiRC :AnimEnter="BtnEnter" :AnimLeave="BtnLeave" :Affichage="Affichage" :AffichageType="true"><!-- Composant de transition en fonction de la valeurs d'affichage -->
+      <div class="OpenBtn">
+        <div class="Circle" v-on:click="SetAffichage()">
           <div class="Shift">›</div>
         </div>
       </div>
-    </transition>
-    <transition
-      v-on:enter="ListEnter"
-      v-on:leave="ListLeave"
-      :duration="{ enter: 1400, leave: 1500 }"
-    >
-      <div v-if="Affichage == false" class="List">
-        <div
-          v-for="(element, index) in Cast"
-          :key="index"
-          v-on:click="
-            () => {
-              Affichage = !Affichage;
-              AffichageElement = element;
-            }
-          "
-          @mouseover="CastHover"
-          v-bind:class="[index === 1 ? 'List-element active' : 'List-element']"
-        >
+    </TransiRC>
+    <TransiRC :AnimEnter="ListEnter" :AnimLeave="ListLeave" :Affichage="Affichage" :AffichageType="false">
+      <div class="List">
+        <div v-for="(element, index) in Cast" :key="index" v-on:click="SetAffichage(element)" @mouseover="CastHover" v-bind:class="[index === 1 ? 'List-element active' : 'List-element']">
           <img :src="element.image" />
         </div>
       </div>
-    </transition>
-    <transition
-      v-on:enter="AffichageEnter"
-      v-on:leave="AffichageLeave"
-      :duration="{ enter: 1400, leave: 1500 }"
-    >
-      <div v-if="Affichage == true" class="Affichage">
-        <div class="Name-Container">
-          <div class="Name">
-            {{ AffichageElement ? AffichageElement.name : Cast[1].name }}
-          </div>
-        </div>
-        <div class="Image-Container">
-          <img
-            class="Image"
-            :src="AffichageElement ? AffichageElement.image : Cast[1].image"
-          />
-        </div>
-        <div class="Description-Container">
-          <div class="Description">
-            {{
-              AffichageElement
-                ? AffichageElement.description
-                : Cast[1].description
-            }}
-          </div>
-        </div>
-      </div>
-    </transition>
+    </TransiRC>
+    <TransiRC :AnimEnter="AffichageEnter" :AnimLeave="AffichageLeave" :Affichage="Affichage" :AffichageType="true">
+      <InfoCast :AffichageElement="AffichageElement" :CastBase="Cast[1]"/>
+    </TransiRC>
   </div>
 </template>
 
 <script>
 import gsap from "gsap";
+import DetailsCastAnimation from "@/mixins/DetailsCastAnimation.js";
+import InfoCast from "@/components/Details/CastComponents/InfoCast";
+import TransiRC from "@/components/TransiRC";
 export default {
   name: "Cast",
   data() {
@@ -78,102 +37,18 @@ export default {
     show: { type: String },
     AffichageElement: {},
   },
-  methods: {
-    CastHover(e) {
-      document.querySelector(".List-element.active").classList.remove("active");
-      e.target.classList.add("active");
-    },
-    CastAffichageEnter() {
-      gsap.to(".Cast .List", {
-        x: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-    },
-    ListLeave() {
-      gsap.to(".Cast .List", {
-        x: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-    },
-    ListEnter() {
-      gsap.fromTo(
-        ".Cast .List",
-        { x: -500 },
-        {
-          x: 0,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-    },
-    BtnLeave() {
-      gsap.to(".Cast .OpenBtn", {
-        x: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-    },
-    BtnEnter() {
-      gsap.fromTo(
-        ".Cast .OpenBtn",
-        { x: -500 },
-        {
-          x: 0,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-    },
-    AffichageLeave() {
-      gsap.to(".Cast .Affichage .Name", {
-        x: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-      gsap.to(".Cast .Affichage .Image", {
-        y: -500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-      gsap.to(".Cast .Affichage .Description", {
-        x: 500,
-        duration: 1.4,
-        ease: [0.6, 0.01, -0.05, 0.9],
-      });
-    },
-    AffichageEnter() {
-      gsap.fromTo(
-        ".Affichage .Name",
-        { x: -500 },
-        {
-          x: 0,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-      gsap.fromTo(
-        ".Affichage .Image",
-        { x: -500 },
-        {
-          x: 0,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-      gsap.fromTo(
-        ".Affichage .Description",
-        { x: 500 },
-        {
-          x: 0,
-          duration: 1.4,
-          ease: [0.6, 0.01, -0.05, 0.9],
-        }
-      );
-    },
-    CastAffichageLeave() {},
+  components: {
+    InfoCast,
+    TransiRC,
   },
+  methods:{
+    SetAffichage(e){
+      this.Affichage=!this.Affichage;
+      if(e)
+      this.$emit('AffichageElement' , e);
+    }
+  },
+  mixins: [DetailsCastAnimation],
 };
 </script>
 

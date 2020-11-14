@@ -1,9 +1,7 @@
 <template>
   <div class="date">
     {{ Year }}
-    <span class="tv_ico"
-      ><img src="http://www.cartaodental.com/nbase/image/pc.svg"
-    /></span>
+    <span class="tv_ico"><img src="http://www.cartaodental.com/nbase/image/pc.svg"/></span>
   </div>
 </template>
 

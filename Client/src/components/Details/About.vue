@@ -6,9 +6,6 @@
     <div class="Year">
       <div>{{ Item.Year }}</div>
     </div>
-    <!-- <div class="Saison">
-      <div>{{ Item.Saison }}</div>
-    </div> -->
     <div class="Rate">
       <div>{{ Item.Rate }}</div>
     </div>
@@ -21,7 +18,6 @@ export default {
   props: {
     Item: { type: Object },
   },
-  methods: {},
 };
 </script>
 

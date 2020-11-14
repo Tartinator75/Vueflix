@@ -24,6 +24,7 @@ export default {
   },
 
   methods: {
+    // methodes de navigation nous pouvions aussi utiliser la balise <router-link to=""> 
     NavigateNews() {
       this.$router.push({ name: "News" });
     },
@@ -34,9 +35,6 @@ export default {
       this.$router.push({ name: "MyList" });
     },
   },
-      created(){
-      console.log(this.$router);
-    }
 };
 </script>
 

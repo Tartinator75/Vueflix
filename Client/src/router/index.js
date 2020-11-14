@@ -9,7 +9,6 @@ import SignIn from '../views/SignIn'
 import Details2 from '../views/Details.vue'
 import Search from '../views/Search.vue'
 import SignUp from '../views/SignUp.vue'
-
 Vue.use(VueRouter)
 
 const routes = [

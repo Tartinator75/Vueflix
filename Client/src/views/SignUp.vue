@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import SignUpForm from '@/components/SignUpForm.vue'
+import SignUpForm from '@/components/Log/SignUpForm.vue'
     export default {
         components: {
             SignUpForm

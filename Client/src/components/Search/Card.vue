@@ -1,36 +1,15 @@
 <template>
-  <div
-    class="card"
-    :style="
-      `background:center / cover no-repeat url(${Item.Content[0][2]});backdrop-filter: brightness(0.6);`
-    "
-  >
-
-    <Date :Year="Item.Year" />
-    <Content :Title="Item.Title" :Director="Item.Director" />
+  <div class="card" :style="`background:center / cover no-repeat url(${Item.Content[0][2]});backdrop-filter: brightness(0.6);`">
+    <Date :Year="Item.Year" /><!-- affichage de l'année -->
+    <Content :Title="Item.Title" :Director="Item.Director" /><!-- affichage du directeur et du titre -->
     <div class="sinopse">
       <router-link :to="`/Details/${Item._id}`">
-        <video
-          id="myVideo"
-          @mouseover="HoverCard"
-          @mouseleave="LeaveCard"
-          loop
-          frameborder="0"
-          allowfullscreen
-        >
+        <video id="myVideo" @mouseover="HoverCard" @mouseleave="LeaveCard" loop frameborder="0" allowfullscreen><!-- quand nous passons notre souries dessus il affiche une trailer -->
           <source id="source" :src="Item.Trailer" type="video/mp4" />
         </video>
       </router-link>
-
-      <ContentSinopse
-        :InList="InList"
-        :AddList="AddList"
-        :RemoveList="RemoveList"
-        :Description="Item.Description"
-        :Id="Item._id"
-      />
-
-      <MoreInfo :Categorie="Item.Categorie" :Casts="Item.Cast" />
+      <ContentSinopse :InList="InList" :AddList="AddList" :RemoveList="RemoveList" :Description="Item.Description" :Id="Item._id"/><!-- Description et composant d'ajout dans la liste de l'utilisateurs -->
+      <MoreInfo :Categorie="Item.Categorie" :Casts="Item.Cast" /><!-- information supplémentaire pas afficher a l'utilisateurs pour sa recherche -->
     </div>
   </div>
 </template>
@@ -125,5 +104,6 @@ export default {
   width: 100%;
   margin-left: -30px;
   height: 80%;
+  filter: brightness(0.5);
 }
 </style>

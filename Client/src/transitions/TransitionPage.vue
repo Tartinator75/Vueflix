@@ -12,32 +12,29 @@
 </template>
 
 <script>
-const DEFAULT_TRANSITION = `slide`;
-const DEFAULT_TRANSITION_MODE = `out-in`;
 export default {
   name: `TransitionPage`,
   data() {
     return {
       prevHeight: 0,
-      transitionName: DEFAULT_TRANSITION,
-      transitionMode: DEFAULT_TRANSITION_MODE,
+      transitionName: `slide`,
+      transitionMode: `out-in`,
       transitionEnterActiveClass: ``,
     };
   },
   created() {
     this.$router.beforeEach((to, from, next) => {
-      let transitionName = to.meta.transitionName || from.meta.transitionName || DEFAULT_TRANSITION;
+      let transitionName = to.meta.transitionName || from.meta.transitionName 
       if (transitionName === `slide`) {
-        const toDepth = to.path.split(`/`).length;
-        const fromDepth = from.path.split(`/`).length;
-        transitionName = toDepth < fromDepth ? `slide-right` : `slide-left`;
+        const toUrl = to.path.split(`/`).length;
+        const fromUrl = from.path.split(`/`).length;
+        transitionName = toUrl < fromUrl ? `slide-right` : `slide-left`;
       }
        if (transitionName === `slideD`) {
-        const toDepth = to.path.split(`/`).length;
-        const fromDepth = from.path.split(`/`).length;
-        transitionName = toDepth < fromDepth ? `slideD-right` : `slideD-left`;
+        const toUrl = to.path.split(`/`).length;
+        const fromUrl = from.path.split(`/`).length;
+        transitionName = toUrl < fromUrl ? `slideD-right` : `slideD-left`;
       }
-      this.transitionMode = DEFAULT_TRANSITION_MODE;
       this.transitionEnterActiveClass = `${transitionName}-enter-active`;
 
       this.transitionName = transitionName;
@@ -83,9 +80,6 @@ export default {
   opacity: 0;
   transform: translate(-2em, 0);
 }
-
-
-
 
 .slideD-left-enter-active,
 .slideD-left-leave-active,

@@ -16,7 +16,8 @@ exports.create = (req, res) => {
     Rate:req.body.Rate,
     Logo:req.body.Logo,
     Director:req.body.Director,
-    Cast:req.body.Cast
+    Cast:req.body.Cast,
+    Disponible:req.body.Disponible
   });
 
   /*if (err) {
@@ -60,7 +61,7 @@ exports.findById = (req, res) => {
 };
 
 
-exports.findByIdAndUpdate = (req, res) => {
+exports.findByIdAndUpdate = (req, res) => {// deprecated
   Serie.findOneAndUpdate(req.params.id, req.body)
     .then(Serie => {
       res.send(Serie);
