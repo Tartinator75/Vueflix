@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <TransitionPage>
+    <TransitionPage><!-- Componsant permettant la transition entre chaque page -->
       <router-view />
     </TransitionPage>
   </div>
 </template>
+
 
 <script>
 import TransitionPage from "./transitions/TransitionPage.vue";
