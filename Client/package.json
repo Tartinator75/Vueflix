@@ -4,10 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "xlio": "vue-cli-service build && vue-cli-service serve && cd ../Api && npm start",
+    "build": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
     "dev:api": "cd ../Api && npm install && nodemon index.js",
-    "dev:client": "vue-cli-service build",
-    "build": "concurrently \"npm run dev:api\" \"npm run dev:client\""
+    "dev:client": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -27,6 +26,6 @@
     "concurrently": "^5.3.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
-    "vue-template-compiler": "^2.6.11"s
+    "vue-template-compiler": "^2.6.11"
   }
 }
