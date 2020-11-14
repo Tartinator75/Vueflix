@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "xlio": "vue-cli-service build && vue-cli-service serve && cd ../Api && npm start",
     "dev:api": "cd ../Api && nodemon index.js",
-    "dev:client": "npm run serve",
+    "dev:client": "vue-cli-service build",
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\""
   },
   "dependencies": {
