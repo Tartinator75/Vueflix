@@ -10,7 +10,7 @@
         placeholder="Password"
       />
     </div>
-    <h3 v-if="errorVisible">account not found</h3>
+    <p class="errorMsg" v-if="errorVisible">account not found</p>
 <div class="buttons-form">
     <button @click.prevent="logIn" id="signinBtn">SIGN IN</button>
     <button @click.prevent="navigateToSignUp" id="signupBtn">SIGN UP</button>
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-h3{
+.errorMsg{
   color: #e50914;
   margin: 0 0 2vh 0;
 }
@@ -101,5 +101,8 @@ button {
     height: 4vh;
     margin: 0 1vw;
   }
+  .errorMsg{
+  text-align: center;
+}
 }
 </style>

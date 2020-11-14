@@ -18,7 +18,7 @@
 
       />
     </div>
-    <h3 v-if="errorVisible">this email adress is already registered</h3>
+    <p class="errorMsg" v-if="errorVisible">this email adress is already registered</p>
     <button>SIGN UP</button>
   </form>
 </template>
@@ -67,7 +67,7 @@ export default {
 .form-group {
   margin: 10vh 0;
 }
-h3{
+.errorMsg{
   color: #e50914;
   margin: 0 0 2vh 0;
 }
@@ -106,7 +106,11 @@ button {
   
     width: 20vw;
     height: 4vh;
-    margin: 0 1vw;
+   
   }
+  .errorMsg{
+    text-align: center;
+  }
+  
 }
 </style>
