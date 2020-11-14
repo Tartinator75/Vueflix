@@ -1,11 +1,11 @@
 <template>
   <div>
-    <video autoplay loop muted>
+    <video v-if="isVisible" autoplay loop muted>
       <source src="../assets/login_vid.mp4" type="video/mp4" />
     </video>
     <div class="home-menu">
       <div class="home-left">
-        <img src="../assets/netflix-logo.png" alt="" />
+        <img src="../assets/logo-big.png" alt="" />
       </div>
       <div class="home-center">
         <SigninForm />
@@ -25,6 +25,25 @@ import SigninForm from "../components/SignInForm.vue";
 export default {
   components: {
     SigninForm,
+  },
+  data() {
+    return {
+      isVisible: true
+    }
+  },
+  methods: {
+    removeVideo(){
+      if ( window.innerWidth < window.innerHeight ) {
+         if(window.innerWidth < 1025){
+          
+          this.isVisible = false;
+         }
+       } 
+
+    }
+  },
+  created () {
+    this.removeVideo();
   },
 };
 </script>
@@ -47,8 +66,8 @@ source {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 100%;
-  height: 100%;
+  width: 150%;
+  height: 150%;
   z-index: -100;
   transform: translateX(-50%) translateY(-50%);
   filter: brightness(0.2);
@@ -96,7 +115,7 @@ source {
 }
 img {
   width: 10vw;
-  height: 15vh;
+  height: 6vh;
   margin: 0 5vw;
 }
 .home-center {
@@ -107,14 +126,7 @@ img {
 .form-group {
   margin: 10vh 0;
 }
-.form-group > input {
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid white;
-  color: white;
-  font-size: 16px;
-  width: 25vw;
-}
+
 input:focus {
   outline: none;
 }
@@ -130,14 +142,7 @@ button {
 .form-group {
   margin: 10vh 0;
 }
-.form-group > input {
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid white;
-  color: white;
-  font-size: 16px;
-  width: 25vw;
-}
+
 input:focus {
   outline: none;
 }
@@ -149,5 +154,21 @@ button {
   color: white;
   background: #e50914;
   border: 0;
+}
+@media  (orientation: portrait) {
+  img {
+    width: 80%;
+    height: 5vh;
+    margin: 5vh 5vw;
+  }
+  .home-right p {
+    background: #e50914;
+    float: right;
+    width: 50%;
+    padding: 1vh 1vw;
+    margin-top: 5vh;
+    font-weight: bold;
+  }
+
 }
 </style>

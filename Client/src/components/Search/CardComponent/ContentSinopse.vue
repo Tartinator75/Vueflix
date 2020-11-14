@@ -78,4 +78,13 @@ export default {
   font-size: 1em;
   letter-spacing: 1px;
 }
+@media only screen and (max-width: 906px) {
+.card .sinopse .content-sinopse .title{
+  width: 85%!important;
+  font-size: 2em!important;
+  & div{
+    font-size: 0.5em!important;
+  }
+}
+}
 </style>

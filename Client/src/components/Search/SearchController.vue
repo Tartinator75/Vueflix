@@ -75,8 +75,8 @@ input[type="text"]:focus {
   border-bottom: 2px solid #e5e5e5;
 }
 #textForm {
-  top: 3%;
-    right: 70%;
+    top: 2%;
+    right: 76%;
   z-index: 9999;
   position: fixed;
   width: 200px;

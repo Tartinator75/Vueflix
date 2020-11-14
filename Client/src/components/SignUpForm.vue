@@ -1,13 +1,13 @@
 <template>
   <form action="" @submit.prevent="SignUp">
     <div class="form-group">
-      <input v-model="Firstname" type="text" name="" id="" placeholder="firstname" />
+      <input v-model="Firstname" type="text"  placeholder="firstname" />
     </div>
     <div class="form-group">
-      <input v-model="Lastname" type="text" name="" id="" placeholder="lastname" />
+      <input v-model="Lastname" type="text"  placeholder="lastname" />
     </div>
     <div class="form-group">
-      <input v-model="Email" type="email" name="" id="" placeholder="Email" />
+      <input v-model="Email" type="email" placeholder="Email" />
     </div>
     <div class="form-group">
       <input
@@ -15,11 +15,10 @@
         type="password"
         name=""
         placeholder="Password"
-        id=""
-       
+
       />
     </div>
-
+    <h3 v-if="errorVisible">this email adress is already registered</h3>
     <button>SIGN UP</button>
   </form>
 </template>
@@ -30,39 +29,35 @@ export default {
   name: "SignupForm",
    data() {
     return {
-    Firstname:"",
-    Lastname:"",
-    Email:"",
-    Password:"",
-    admin: false,
-    MyList: []
+    Firstname:"test",
+    Lastname:"test",
+    Email:"test@test.test",
+    Password:"test",
+    errorVisible: false,
     }
   },
   methods:{
-    SignUp: function(){
-        let firstname = this.Firstname;
-        let lastname = this.Lastname;
-        let email = this.Email;
-        let password = this.Password;
-        let admin = this.admin;
-        let myList = this.MyList;
-        const self = this;
+
+    SignUp(){
 
         let user = {
-            'firstname' : firstname,
-            'lastname' : lastname,
-            'email' : email,
-            'password' : password,
-            'admin' : admin,
-            'MyList': myList
+            "firstname" : this.Firstname,
+            "lastname" : this.Lastname,
+            "email" : this.Email,
+            "password" : this.Password,
+            "admin" : false,
         }
-      
-         this.Create(user)
-         .then(function(res){
-           self.$router.push({ name: "SignIn" });
-         });
-      
-    },
+         this.Create(user).then((res)=> {
+           console.log(res);
+        if (res._id) {
+          this.$router.push("/Search");
+        } else {
+          this.errorVisible = true;
+        }
+
+      });
+    }
+
   },
   mixins: [UserApi],
 };
@@ -71,6 +66,10 @@ export default {
 <style lang="scss" scoped>
 .form-group {
   margin: 10vh 0;
+}
+h3{
+  color: #e50914;
+  margin: 0 0 2vh 0;
 }
 .form-group > input {
   background: transparent;
@@ -92,5 +91,22 @@ button {
   color: white;
   background: #e50914;
   border: 0;
+}
+  @media  (orientation: portrait) {
+    
+    form, .form-group, .form-group > input {
+    
+      width: 100%;
+      font-size: 20px;
+    }
+    .form-group {
+    margin: 8vh 0;
+    }
+    button {
+  
+    width: 20vw;
+    height: 4vh;
+    margin: 0 1vw;
+  }
 }
 </style>

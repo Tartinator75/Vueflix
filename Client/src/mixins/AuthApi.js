@@ -15,11 +15,7 @@ export default {
           password: password,
         }),
       }).then(function(res) {
-        let data = res.json();
-        console.log(data);
-        localStorage.setItem("id", data._id);
-        localStorage.setItem("token", data.token);
-        return data;
+        return res.json();
       });
     },
     GetUserDetail(id) {

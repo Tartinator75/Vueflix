@@ -1,5 +1,5 @@
 <template>
-  <form action="" @submit.prevent="logIn">
+  <form action="">
     <div class="form-group">
       <input v-model="Email" type="email" placeholder="Email" />
     </div>
@@ -10,9 +10,12 @@
         placeholder="Password"
       />
     </div>
-    
+    <h3 v-if="errorVisible">account not found</h3>
+<div class="buttons-form">
+    <button @click.prevent="logIn" id="signinBtn">SIGN IN</button>
+    <button @click.prevent="navigateToSignUp" id="signupBtn">SIGN UP</button>
+</div>
 
-    <button>SIGN IN</button>
   </form>
 </template>
 
@@ -22,29 +25,26 @@ export default {
   name: "SigninForm",
    data() {
     return {
-    Email:"",
-    Password:""
+    Email:"admin@admin.admin",
+    Password:"admin",
+    errorVisible: false,
     }
   },
   methods:{
     logIn: function(){
       const self = this;
-   
       this.Login(this.Email, this.Password)
       .then(function(res){
-        
         if(res.auth == true){
-          self.$router.push("/News");
+          self.$router.push("/Search");
         }
         else{
-          console.log('non')
+          self.errorVisible = true;
         }
-      });
-
-    
-   
-
-      
+      });  
+    },
+    navigateToSignUp(){
+      this.$router.push({ name: "SignUp" });
     }
   },
   mixins: [AuthApi],
@@ -52,6 +52,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h3{
+  color: #e50914;
+  margin: 0 0 2vh 0;
+}
 .form-group {
   margin: 10vh 0;
 }
@@ -69,10 +73,33 @@ input:focus {
 button {
   display: block;
   margin: auto;
-  width: 20vw;
+  width: 10vw;
   height: 5vh;
   color: white;
   background: #e50914;
   border: 0;
+}
+.buttons-form{
+  display: flex
+}
+#signupBtn{
+  background: rgb(177, 176, 176);
+}
+  @media  (orientation: portrait) {
+    
+    form, .form-group, .form-group > input {
+    
+      width: 100%;
+      font-size: 20px;
+    }
+    .form-group {
+    margin: 8vh 0;
+    }
+    button {
+  
+    width: 20vw;
+    height: 4vh;
+    margin: 0 1vw;
+  }
 }
 </style>
