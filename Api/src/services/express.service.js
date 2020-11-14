@@ -10,12 +10,13 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use("/api/v1", apiRouter);
 
-let port = config.port;
-app.listen(port, (err) => {
-  if (err) {
-    console.log(`Error:${err}`);
-    process.exit(-1);
-  }
-  console.log(`app is running on port ${port}`);
-
-});
+exports.Start = () => {
+  let port = config.port;
+  app.listen(port, (err) => {
+    if (err) {
+      console.log(`Error:${err}`);
+      process.exit(-1);
+    }
+    console.group(`app is running on port ${port}`);
+  });
+};
