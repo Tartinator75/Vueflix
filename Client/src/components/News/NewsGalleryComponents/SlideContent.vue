@@ -13,7 +13,7 @@
 </template>
 
 <script >
-import ShrinkButton from "./SlideContentComponents/ShrinkButton";
+import ShrinkButton from "@/components/ShrinkButton";
 export default {
   name: "SlideContent",
   data() {

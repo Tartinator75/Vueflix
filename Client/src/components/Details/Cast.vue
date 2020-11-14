@@ -1,11 +1,7 @@
 <template>
   <div class="Cast">
     <TransiRC :AnimEnter="BtnEnter" :AnimLeave="BtnLeave" :Affichage="Affichage" :AffichageType="true"><!-- Composant de transition en fonction de la valeurs d'affichage -->
-      <div class="OpenBtn">
-        <div class="Circle" v-on:click="SetAffichage()">
-          <div class="Shift">›</div>
-        </div>
-      </div>
+      <CircleButton :clicker="SetAffichage"/>
     </TransiRC>
     <TransiRC :AnimEnter="ListEnter" :AnimLeave="ListLeave" :Affichage="Affichage" :AffichageType="false">
       <div class="List">
@@ -24,6 +20,7 @@
 import gsap from "gsap";
 import DetailsCastAnimation from "@/mixins/DetailsCastAnimation.js";
 import InfoCast from "@/components/Details/CastComponents/InfoCast";
+import CircleButton from "@/components/Details/CastComponents/CircleButton";
 import TransiRC from "@/components/TransiRC";
 export default {
   name: "Cast",
@@ -40,6 +37,7 @@ export default {
   components: {
     InfoCast,
     TransiRC,
+    CircleButton
   },
   methods:{
     SetAffichage(e){

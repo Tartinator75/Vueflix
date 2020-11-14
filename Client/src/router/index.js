@@ -1,21 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Log from '../views/Log.vue'
+import Home from '../views/Home.vue'
 
 
 import MyList from '../views/MyList.vue'
 import News from '../views/News.vue'
-import SignIn from '../views/SignIn'
-import Details2 from '../views/Details.vue'
+import Sign from '../views/Sign'
+import Details from '../views/Details.vue'
 import Search from '../views/Search.vue'
-import SignUp from '../views/SignUp.vue'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Log',
-    component: Log,
+    name: 'Home',
+    component: Home,
     meta: { transitionName: `slide` }
   },
   {
@@ -27,7 +26,7 @@ const routes = [
   {
     path: '/Details/:id',
     name: 'Details',
-    component: Details2,
+    component: Details,
     meta: { transitionName: `slideD` }
   },
   {
@@ -43,15 +42,9 @@ const routes = [
     meta: { transitionName: `slide` }
   },
   {
-    path: '/Log/SignIn',
-    name: 'SignIn',
-    component: SignIn,
-    meta: { transitionName: `slide` }
-  },
-  {
-    path: '/Log/SignUp',
-    name: 'SignUp',
-    component: SignUp,
+    path: '/Sign',
+    name: 'Sign',
+    component: Sign,
     meta: { transitionName: `slide` }
   },
 ]

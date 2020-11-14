@@ -23,17 +23,18 @@ export default {
     };
   },
   created() {
-    this.$router.beforeEach((to, from, next) => {
-      let transitionName = to.meta.transitionName || from.meta.transitionName 
-      if (transitionName === `slide`) {
-        const toUrl = to.path.split(`/`).length;
-        const fromUrl = from.path.split(`/`).length;
-        transitionName = toUrl < fromUrl ? `slide-right` : `slide-left`;
+    this.$router.beforeEach((to, from, next) => {// avant la recdirection
+      let transitionName = to.meta.transitionName || from.meta.transitionName // je prend le type de transition de la page 
+      if (transitionName === `slide`) {// si c'est slide 
+        const toUrl = to.path.split(`/`).length;// je regade la length de la redirection
+        const fromUrl = from.path.split(`/`).length;// je regarde la lenght de la ou on est
+        transitionName = toUrl < fromUrl ? `slide-right` : `slide-left`; // j'applique le css correspondant a l'animation que je dois faire 
+        // si /home/sign est l'enfant de Home donc l'animation sera toujours differente entre les deux 
       }
-       if (transitionName === `slideD`) {
+       if (transitionName === `slideD`) {// si c'est slide D meme chose que pour slide sauf que l'animation se fait vers le bas
         const toUrl = to.path.split(`/`).length;
         const fromUrl = from.path.split(`/`).length;
-        transitionName = toUrl < fromUrl ? `slideD-right` : `slideD-left`;
+        transitionName = toUrl < fromUrl ? `slideD-down` : `slideD-up`;
       }
       this.transitionEnterActiveClass = `${transitionName}-enter-active`;
 
@@ -53,7 +54,7 @@ export default {
       });
     },
     afterEnter(element) {
-      element.style.height = `auto`;
+      // element.style.height = `auto`;
     },
   },
 };
@@ -81,23 +82,23 @@ export default {
   transform: translate(-2em, 0);
 }
 
-.slideD-left-enter-active,
-.slideD-left-leave-active,
-.slideD-right-enter-active,
-.slideD-right-leave-active {
+.slideD-down-enter-active,
+.slideD-down-leave-active,
+.slideD-up-enter-active,
+.slideD-up-leave-active {
   transition-duration: 0.8s;
   transition-property: height, opacity, transform;
   transition-timing-function: cubic-bezier(0.55, 0, 0.1, 1);
   overflow: hidden;
 }
 
-.slideD-left-enter,
-.slideD-right-leave-active {
+.slideD-down-enter,
+.slideD-up-leave-active {
   opacity: 0;
   transform: translate(0, 2em);
 }
-.slideD-left-leave-active,
-.slideD-right-enter {
+.slideD-down-leave-active,
+.slideD-up-enter {
   opacity: 0;
   transform: translate(0,-2em);
 }

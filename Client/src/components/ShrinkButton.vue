@@ -1,9 +1,9 @@
 <template>
   <div class="button">
-    <a href="#">
+    <div class="btn-container">
       {{Text}}
       <span class="shift">›</span>
-    </a>
+    </div>
     <div class="mask"></div>
   </div>
 </template>
@@ -18,6 +18,7 @@ export default {
 
 <style >
 .button {
+  
   border: 2px solid rgba(255, 255, 255, 0.8);
   cursor: pointer;
   letter-spacing: 0.2125rem;
@@ -32,7 +33,11 @@ export default {
   user-select: none;
 }
 
-.button a {
+.button .btn-container {
+      font-family: F001, sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
   color: white;
   text-decoration: none;
 }
@@ -59,7 +64,7 @@ export default {
   transition: background 0s;
 }
 
-.button:hover a {
+.button:hover .btn-container {
   color: #fff;
 }
 
@@ -76,7 +81,7 @@ export default {
   background-color: #fff;
 }
 
-.button:active a {
+.button:active .btn-container {
   color: #202020;
 }
 </style>

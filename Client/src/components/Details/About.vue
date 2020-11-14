@@ -1,22 +1,20 @@
 <template>
   <div class="About">
-    <div class="Description">
-      <div>{{ Item.Description }}</div>
-    </div>
-    <div class="Year">
-      <div>{{ Item.Year }}</div>
-    </div>
-    <div class="Rate">
-      <div>{{ Item.Rate }}</div>
-    </div>
+    <AboutContent Class="Description" :Value="Item.Description" />
+    <AboutContent Class="Year" :Value="Item.Year" />
+    <AboutContent Class="Rate" :Value="Item.Rate" />
   </div>
 </template>
 
 <script>
+import AboutContent from "@/components/Details/AboutComponents/AboutContent";
 export default {
   name: "About",
   props: {
     Item: { type: Object },
+  },
+  components: {
+    AboutContent,
   },
 };
 </script>

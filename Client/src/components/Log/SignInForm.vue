@@ -1,68 +1,43 @@
 <template>
-  <form action="">
-    <div class="form-group">
-      <input v-model="Email" type="email" placeholder="Email" />
+<div>
+    <div class="Input-Container">
+      <input v-model="Firstname" type="text" placeholder="firstname" v-if="!SignMode"/>
+      <input v-model="Lastname" type="text" placeholder="lastname" v-if="!SignMode"/>
+      <input v-model="Email" type="Email" placeholder="Email" />
+      <input v-model="Password" type="password" placeholder="Password" />
+     <ButtonGroup :Text2Action="SignMode ? 'SignUp' : 'SignIn'" :Action2="ChangeMode" :TextAction="SignMode ? 'SignIn' : 'SignUp'" :Action="Submit"/>
     </div>
-    <div class="form-group">
-      <input
-       v-model="Password"
-        type="password"
-        placeholder="Password"
-      />
-    </div>
-    <p class="errorMsg" v-if="errorVisible">account not found</p>
-<div class="buttons-form">
-    <button @click.prevent="logIn" id="signinBtn">SIGN IN</button>
-    <button @click.prevent="navigateToSignUp" id="signupBtn">SIGN UP</button>
+     <ErrorText :Text="errorText" :errorVisible="errorVisible"/>
 </div>
-
-
-  </form>
 </template>
 
 <script>
-import AuthApi from "@/mixins/AuthApi.js";
+import ErrorText from "@/components/Log/SignComponent/ErrorText";
+import ButtonGroup from "@/components/Log/SignComponent/ButtonGroup";
+import Sign from "@/mixins/Sign.js";
 export default {
   name: "SigninForm",
-   data() {
-    return {
-    Email:"admin@admin.admin",
-    Password:"admin",
-    errorVisible: false,
-    }
+  components: {
+    ErrorText,
+    ButtonGroup
   },
-  methods:{
-    logIn: function(){
-      const self = this;
-      this.Login(this.Email, this.Password)
-      .then(function(res){
-        if(res.auth == true){
-           localStorage.setItem("id",res.body._id);
-          localStorage.setItem("token",res.token);
-          self.$router.push("/Search");
-        }
-        else{
-          self.errorVisible = true;
-        }
-      });  
-    },
-    navigateToSignUp(){
-      this.$router.push({ name: "SignUp" });
-    }
-  },
-  mixins: [AuthApi],
+  mixins: [Sign],
 };
 </script>
 
 <style lang="scss" scoped>
-.errorMsg{
-  color: #e50914;
-  margin: 0 0 2vh 0;
+.Input-Container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  position: absolute;
+  align-items: center;
 }
-.form-group {
-  margin: 10vh 0;
-}
-.form-group > input {
+
+input {
+  margin: 5vh 0;
   background: transparent;
   border: 0;
   border-bottom: 1px solid white;
@@ -73,39 +48,9 @@ export default {
 input:focus {
   outline: none;
 }
-button {
-  display: block;
-  margin: auto;
-  width: 10vw;
-  height: 5vh;
-  color: white;
-  background: #e50914;
-  border: 0;
-}
-.buttons-form{
-  display: flex
-}
-#signupBtn{
-  background: rgb(177, 176, 176);
-}
-  @media  (orientation: portrait) {
-    
-    form, .form-group, .form-group > input {
-    
-      width: 100%;
-      font-size: 20px;
-    }
-    .form-group {
-    margin: 8vh 0;
-    }
-    button {
-  
-    width: 20vw;
-    height: 4vh;
-    margin: 0 1vw;
+@media only screen and (max-width: 906px) {
+  input {
+ width: 80%;
   }
-  .errorMsg{
-  text-align: center;
-}
 }
 </style>

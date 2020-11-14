@@ -30,6 +30,7 @@ export default {
 .Upcoming {
   background: #141411;
   padding-top: 3vh;
+      height: 100vh;
   & .Search-Container h1 {
     color: white;
     font-family: F001, sans-serif;

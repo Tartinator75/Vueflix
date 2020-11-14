@@ -17,8 +17,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-
 @font-face {
   font-family: "F001";
   src: url("assets/font1.woff2") format("woff2"),
@@ -27,26 +25,24 @@ export default {
   font-style: normal;
   font-display: auto;
 }
-html{
+html {
 }
-.Page{
-position: relative;
+.Page {
+  position: relative;
   display: block;
- 
   width: 100%;
   height: 100%;
-    z-index: 1;
+  z-index: 1;
 }
 body {
   background: black;
-
 }
 * {
   margin: 0;
   padding: 0;
 }
-a{
- color: inherit;
+a {
+  color: inherit;
   text-decoration: none;
 }
 </style>
