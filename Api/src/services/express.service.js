@@ -16,5 +16,6 @@ app.listen(port, (err) => {
     console.log(`Error:${err}`);
     process.exit(-1);
   }
-  console.group(`app is running on port ${port}`);
+  console.log(`app is running on port ${port}`);
+
 });
