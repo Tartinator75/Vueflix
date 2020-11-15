@@ -32,8 +32,7 @@
   <li>computed</li>
 </ul>
 <h1>Note:</h1>
-<p>Netlify de l'application: https://fervent-fermat-9e849f.netlify.app/#/</p>
-<p><strong>L'Api(nodejs mongodb) n'est pas Host donc le client sur netlify ne fonctionnera pas</strong> </p>
+<p>Netlify de l'application: https://modest-lovelace-2b3699.netlify.app/</p>
 
 <p>penser a modifier les variables d'environnement du client si vous l'utilisé en local</p>
 <p>VUE_APP_API_URL=http://localhost:3300/api/v1 ==> url api</br>
