@@ -5,7 +5,7 @@ import store from './store'
 import VueCarousel from "vue-carousel";
 Vue.config.productionTip = false
 Vue.use(VueCarousel);
-Vue.config.silent = false;
+Vue.config.silent = true;
 new Vue({
   router,
   store,
