@@ -17,7 +17,7 @@
 
 <h1>Note:</h1>
 <p>Netlify de l'application: https://fervent-fermat-9e849f.netlify.app/#/</p>
-<p>L'Api(nodejs mongodb) n'est pas Host (pour cause de trop de demande sur Heroku)donc le client sur netlify ne fonctionne pas </p>
+<p>L'Api(nodejs mongodb) n'est pas Host (pour cause de trop de demande sur Heroku et plus de 12 mois gratuit aws)donc le client sur netlify ne fonctionne pas </p>
 
 <p>penser a modifier les variables d'environnement du client si vous l'utilisé en local</p>
 <p>VUE_APP_API_URL=http://localhost:3300/api/v1 ==> url api</br>
