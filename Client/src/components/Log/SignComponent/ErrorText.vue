@@ -13,8 +13,7 @@ export default {
 </script>
 
 <style>
-@media only screen and (max-width: 906px) {
-    .errorMsg {
+  .errorMsg {
  color: white;
     font-family: F001, sans-serif;
     font-weight: 400;
@@ -28,6 +27,8 @@ export default {
     padding: 7px;
     bottom: 10%;
 }
+@media only screen and (max-width: 906px) {
+  
   .errorMsg {
      font-size: 1.5em;
     width: 85px;
